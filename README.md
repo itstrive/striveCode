@@ -12,4 +12,8 @@ jquery-deferred
 deferred usage,and some demo!
 
 ==============================
+jquery-load
 
+load usage,and some demo!
+
+==============================
