@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="奋斗网 - itstrive.com" />
+<meta name="copyright" content="奋斗网 - itstrive.com" />
+<title>奋斗网— http://www.itstrive.com</title>
+<style>
+</style>
+<script src="jquery-1.7.2.js"></script>
+<script>
+//$.ajax()  返回的是一个deferred 对象
+//$.when（必须放一个deferred对象）
+
+function wait(){
+	var defer=$.Deferred(); //新建一个Derferred对象
+	setTimeout(function(){
+		alert('执行完毕');
+		defer.reject();  //resolve 是执行done函数  reject是执行 fail函数
+	},5000);
+	
+	return defer;
+}
+
+$(function(){
+	
+	$('#btn1').click(function(){
+		$.when(wait()).then(function(){
+			alert('成功');	
+		},function(){
+			alert('失败');
+		}).always(function(){
+			alert('总是执行');	
+		});
+	});	
+	
+	//defer.resolve();  //此语句是失效的
+});
+</script>
+</head>
+
+<body>
+<input type="button" value="按钮" id="btn1">
+</body>
+</html>
