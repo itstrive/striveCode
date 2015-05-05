@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="奋斗网 - itstrive.com" />
+<meta name="copyright" content="奋斗网 - itstrive.com" />
+<title>奋斗网— http://www.itstrive.com</title>
+<style>
+#div1{ width:300px; height:300px; background:#ccc; color:#fff; display:none;}
+</style>
+<script src="jquery-1.11.2.js"></script>
+<script>
+$(function(){
+	$('#div1').load('https://www.baidu.com/',function(){
+		$('#div1').fadeIn('slow');	
+	});	
+});
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>
