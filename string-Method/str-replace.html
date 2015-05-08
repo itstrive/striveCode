@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+</style>
+<script>
+var str='welcome to china';
+document.write(str.replace('welcome','Not welcome')+'<br>');
+document.write(str.replace(/\w+/g,'**')+'<br>');
+document.write(str.replace(/\w+/g,function(s,index,str){
+	//s  符合正则匹配出来的项
+	//index 匹配出来的项在整个字符串中的位置
+	//str  整个字符串
+	console.log(s,index,str);
+	return s+index;
+}));
+</script>
+</head>
+
+<body>
+</body>
+</html>
