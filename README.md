@@ -17,3 +17,15 @@ jquery-load
 load usage,and some demo!
 
 ==============================
+
+string-Method
+
+字符串方法总汇
+
+
+==============================
+
+node-Knowledge-points
+
+nodejs知识点积累！
+==============================
