@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+
+</style>
+<meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1">
+<script src="jquery-1.11.1.js"></script>
+<script>
+window.onload=function(){
+	var oF=document.getElementById('f1');
+	oF.addEventListener('change',function(ev){
+		
+		var formData=new FormData();
+		
+		var file = ev.target.files || ev.dataTransfer.files;
+		
+		formData.append('pic',file[0]);
+		$.ajax({
+			url:'doupload.php',
+			type:'post',
+			data:formData,
+			contentType:false,
+			processData:false,
+			success:function(){
+				alert('上传成功了');
+				oF.value='';
+			},
+			error:function(){
+				alert('上传失败了');	
+			}	
+		}); 
+		
+		ev.preventDefault();
+	});
+};
+</script>
+</head>
+
+<body>
+<form action="doupload.php" method="post" enctype="multipart/form-data">
+	上传图片:<input type="file" id="f1" name="pic" accept="image/*;capture=camera">
+</form><hr>
+</body>
+</html>

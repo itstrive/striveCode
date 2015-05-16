@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<meta name="viewport" content="width=device-width, user-scalable=0, initial-scale=1">
+<style>
+
+</style>
+<script src="ajax.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+	var oF=document.querySelector('#f1');
+	
+	oF.addEventListener('change',function(ev){
+		var file = ev.target.files || ev.dataTransfer.files;
+		 
+		ajax({
+			url:'doupload.php',
+			type:'post',
+			data:{
+				pic:file	
+			},
+			success:function(){
+				alert('成功了');
+			},
+			error:function(){
+				alert('失败了');	
+			}	
+		}); 
+		 
+		/*if(file){
+			//alert(file.length);
+			var reader=new FileReader();
+			
+			reader.onload=function(){
+				
+			}
+			
+			reader.readAsDataURL(file[0]);
+		}
+		 
+		ev.preventDefault;*/
+	},false);
+},false);
+</script>
+</head>
+
+<body>
+<input id="f1" type="file" accept="image/*;capture=camera">
+</body>
+</html>
