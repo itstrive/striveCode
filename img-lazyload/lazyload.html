@@ -1,0 +1,32 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>无标题文档</title>
+<style>
+.border {
+	padding: 10px;
+	border-style: solid;
+	border-width: 3px;
+	border-color: blue;
+}
+</style>
+<script src="layzr.js"></script>
+</head>
+
+<body>
+<!--http://callmecavs.github.io/layzr.js/--->
+<img data-layzr="https://www.baidu.com/img/bd_logo1.png"><br>
+<img data-layzr="http://www.zhinengshe.com/images/logo.png">
+<script>
+var layzr = new Layzr({
+	selector: '[data-layzr]',
+	callback: function () {
+		console.log(this);
+		this.classList.add('border');
+	}
+});
+</script>
+
+</body>
+</html>
