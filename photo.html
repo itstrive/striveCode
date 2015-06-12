@@ -1,0 +1,192 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+*{ margin:0; padding:0; list-style:none;}
+body{ text-align:center;}
+#ul1{ width:510px; margin:30px auto;}
+#ul1 li{ width:150px; height:150px; margin:10px; float:left;}
+.box{ border:2px dashed #399;}
+</style>
+<script src="move.js"></script>
+<script>
+window.onload=function(){
+	var oBtn=document.getElementById('btn1');
+	var oUl=document.getElementById('ul1');
+	var aLi=oUl.children;
+	
+	var zIndex=1000;
+	
+	//布局转化
+	var aPos=[];
+	
+	//点击随机换
+	function rndPos(){
+		aPos.sort(function(){
+			return Math.random()-0.5;	
+		});
+		
+		for(var i=0; i<aLi.length; i++){
+			move(aLi[i],aPos[aLi[i].index]);
+		}
+	}
+	oBtn.onclick=rndPos;
+	
+	for(var i=0; i<aLi.length; i++){
+		aPos[i]={left:aLi[i].offsetLeft, top:aLi[i].offsetTop};
+	}
+	
+	for(var i=0; i<aLi.length; i++){
+		aLi[i].style.left=aPos[i].left+'px';
+		aLi[i].style.top=aPos[i].top+'px';
+		aLi[i].style.position='absolute';
+		aLi[i].style.margin=0;
+	}
+	
+	//拖拽
+	for(var i=0; i<aLi.length; i++){
+		drag(aLi[i]);
+		aLi[i].index=i;
+	}
+	
+	function drag(obj){
+		obj.onmousedown=function(ev){
+			var oEvent=ev || event;
+			var disX=oEvent.clientX-obj.offsetLeft;
+			var disY=oEvent.clientY-obj.offsetTop;
+			
+			obj.style.zIndex=zIndex++;
+			
+			document.onmousemove=function(ev){
+				var oEvent=ev || event;
+				obj.style.left=oEvent.clientX-disX+'px';
+				obj.style.top=oEvent.clientY-disY+'px';
+				
+				for(var i=0; i<aLi.length; i++){
+					aLi[i].className='';
+				}
+				//碰撞检测
+				var oNear=findNearest(obj);
+				if(oNear){
+					oNear.className='box';
+				}
+			};
+			document.onmouseup=function(){
+				document.onmousemove=null;
+				document.onmouseup=null;
+				obj.releaseCapture && obj.relaseCapture();
+				var oNear=findNearest(obj);
+				if(oNear){
+					move(oNear,aPos[obj.index]);
+					move(obj,aPos[oNear.index]);
+					
+					oNear.className='';
+					
+					//obj.index  oNear.index
+					var car;
+					car=obj.index;
+					obj.index=oNear.index;
+					oNear.index=car;
+				}else{
+					/*obj.style.left=aPos[obj.index].left+'px';
+					obj.style.top=aPos[obj.index].top+'px';*/
+					move(obj,aPos[obj.index]);
+				}
+				
+			};
+			obj.setCapture && obj.setCapture();
+			return false;
+		};
+	}
+	
+	function findNearest(obj){
+		var iMin=999999999999;
+		var iMinIndex=-1;
+		
+		for(var i=0; i<aLi.length; i++){
+			if(obj==aLi[i])continue;
+			if(collTest(obj,aLi[i])){
+				//找最小的
+				var dis=getDis(obj,aLi[i]);
+				if(dis<iMin){
+					iMin=dis;
+					iMinIndex=i;	
+				}
+			}
+		}	
+		
+		if(iMinIndex==-1){
+			return null;
+		}else{
+			return aLi[iMinIndex];
+		}
+	}
+	
+	
+	function getDis(obj,obj2){
+		var l1=obj.offsetLeft+obj.offsetWidth/2;
+		var l2=obj2.offsetLeft+obj2.offsetWidth/2;
+		
+		var t1=obj.offsetTop+obj.offsetHeight/2;
+		var t2=obj2.offsetTop+obj2.offsetHeight/2;
+		
+		var a=l1-l2;
+		var b=t1-t2;
+		
+		return Math.sqrt(a*a+b*b);
+	}
+	function collTest(obj,obj2){
+		var l1=obj.offsetLeft;
+		var r1=obj.offsetLeft+obj.offsetWidth;
+		var t1=obj.offsetTop;
+		var b1=obj.offsetTop+obj.offsetHeight;
+		
+		var l2=obj2.offsetLeft;
+		var r2=obj2.offsetLeft+obj2.offsetWidth;
+		var t2=obj2.offsetTop;
+		var b2=obj2.offsetTop+obj2.offsetHeight;
+		
+		if(r1<l2 || l1>r2 || b1<t2 || t1>b2){
+			return false;
+		}else{
+			return true;
+		}
+	}
+	
+	//自己随机换
+	var timer=setInterval(function(){
+		rndPos();
+	},2000);
+	
+	oUl.onmouseover=function(){
+		clearInterval(timer);
+	};
+	oUl.onmouseout=function(){
+		timer=setInterval(function(){
+			rndPos();
+		},2000);
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="button" value="随机走一个" id="btn1">
+<ul id="ul1">
+	<li><img src="cat/1.jpg" width="150"></li>
+    <li><img src="cat/2.jpg" width="150"></li>
+    <li><img src="cat/3.jpg" width="150"></li>
+    <li><img src="cat/4.jpg" width="150"></li>
+    <li><img src="cat/5.jpg" width="150"></li>
+    <li><img src="cat/6.jpg" width="150"></li>
+    <li><img src="cat/7.jpg" width="150"></li>
+    <li><img src="cat/8.jpg" width="150"></li>
+    <li><img src="cat/9.jpg" width="150"></li>
+</ul>
+</body>
+</html>
