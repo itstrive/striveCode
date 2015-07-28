@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社-http://www.zhinengshe.com</title>
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1">
+<style>
+*{ margin:0; padding:0; list-style:none;}
+html{
+	width:100%;
+	height:100%;
+	font-size:20px;
+	font-family:'Microsoft YaHei';
+	font-weight:bold;
+	overflow:hidden;
+}
+#header,#footer{ width:100%; height:2rem; background:#399; color:#fff; text-align:center; line-height:2rem; font-size:1rem;}
+#footer{ position:fixed; left:0; bottom:0;}
+#wrap{ width:100%;}
+#wrap ul{ margin-top:1rem;}
+#wrap ul li{ width:5rem; height:5rem; background:#466; margin-bottom:0.2rem;text-align:center; line-height:5rem; color:#fff; float:left; margin-left:0.2rem;}
+#wrap ul li:nth-child(odd){ background:#f60;}
+</style>
+<script>
+
+</script>
+</head>
+
+<body>
+<div id="header">header</div>
+<div id="wrap">
+	<ul>
+    	<li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+    </ul>
+</div>
+
+<div id="footer">footer</div>
+<script>
+// 20	320
+// ?	500
+;(function(doc,win){
+	var sEvent='orientationchange' in window?'orientationchange':'onresize';
+	function fn(){
+		var winW=document.documentElement.clientWidth;
+		document.documentElement.style.fontSize=20*winW/320+'px';
+	}
+	doc.addEventListener('DOMContentLoaded',fn,false);
+})(document,window);
+</script>
+</body>
+</html>
