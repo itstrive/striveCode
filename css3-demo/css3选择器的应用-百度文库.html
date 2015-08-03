@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>CSS3</title>
+<style>
+p{ border:1px solid #000; height:20px; line-height:20px; font-size:12px; padding:5px; width:300px; background:#eee;}
+p a{ text-decoration:none; text-indent:28px; display:block; background:url(../img/icon.png) no-repeat 1px -458px;}
+p a[href*=pdf]{ background:url(../img/icon.png) no-repeat 1px -168px;}
+p a[href*=text]{ background:url(../img/icon.png) no-repeat 1px -210px;}
+p a[href*=doc]{ background:url(../img/icon.png) no-repeat 1px -20px;}
+p a[href*=book]{ background:url(../img/icon.png) no-repeat 1px -420px;}
+p a[href*=exl]{ background:url(../img/icon.png) no-repeat 1px -272px;}
+/* a[href*=xxx]  只要整个值包含xxx字母就可以*/
+</style>
+<script>
+
+</script>
+</head>
+
+<body>
+<p><a href="#">中国文库的历史->默认</a></p>
+<p><a href="#pdf">中国文库的历史->pdf</a></p>
+<p><a href="#text">中国文库的历史->text</a></p>
+<p><a href="#doc">中国文库的历史->doc</a></p>
+<p><a href="#book">中国文库的历史->book</a></p>
+<p><a href="#exl">中国文库的历史->exl</a></p>
+
+</body>
+</html>
