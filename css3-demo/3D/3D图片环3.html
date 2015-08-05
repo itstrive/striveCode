@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社-http://www.zhinengshe.com</title>
+<style>
+*{ margin:0; padding:0; list-style:none;}
+body{ background:#000;}
+#box{ width:133px; height:200px; background:#ccc; position:absolute; left:50%; top:50%; margin-left:-75px; margin-top:-200px; transform:perspective(800px) rotateX(-10deg); transform-style:preserve-3d;}
+#box div{ position:absolute; left:0; top:0; width:100%; height:100%; background:url(img2/1.jpg) no-repeat; transition:1s all ease; border-radius:5px; box-shadow:0 0 10px #fff;}
+#box div span{ position:absolute; left:0; top:0; width:100%; height:100%; background:url(img2/1.jpg) no-repeat; transform-origin:center bottom; transform:translateY(10px) scale(1,-1); -webkit-mask:-webkit-linear-gradient(rgba(0,0,0,0) 40%, rgba(0,0,0,0.5)); opacity:0.5;}
+</style>
+<script>
+window.onload=function(){
+	var oBox=document.getElementById('box');	
+	var N=11;
+	
+	for(var i=0; i<N; i++){
+		var oDiv=document.createElement('div');
+		oDiv.style.backgroundImage='url(img2/'+(i+1)+'.jpg)';
+		oBox.appendChild(oDiv);
+		
+		//倒影的添加
+		oDiv.innerHTML='<span></span>';
+		oDiv.children[0].style.backgroundImage='url(img2/'+(i+1)+'.jpg)';
+		
+		;(function(oDiv,i){
+			setTimeout(function(){
+				oDiv.style.transform='rotateY('+360/N*i+'deg) translateZ(280px)';
+			},200*(N-i));	
+		})(oDiv,i);
+	}
+};
+</script>
+</head>
+
+<body>
+<div id="box">
+</div>
+</body>
+</html>

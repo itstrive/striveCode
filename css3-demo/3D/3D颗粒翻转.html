@@ -1,0 +1,44 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社-http://www.zhinengshe.com</title>
+<style>
+*{ margin:0; padding:0; list-style:none;}
+#box{ width:700px; height:400px; margin:20px auto; position:relative; perspective:800px;}
+#box span{ position:absolute; background:url(img/0.jpg) no-repeat; transform-style:preserve-3d; transition:1s all ease;}
+#box span em{ position:absolute; width:100%; height:100%;}
+#box span em.front{ background:url(img/0.jpg) no-repeat; transform:translateZ(0.1px);}
+#box span em.back{ background:url(img/1.jpg) no-repeat; transform:translateZ(-0.1px) scale(-1,1);}
+
+body:active #box span{ transform:rotateY(180deg);}
+</style>
+<script>
+window.onload=function(){
+	var oBox=document.getElementById('box');
+	var R=4;
+	var C=7;
+	for(var r=0; r<R; r++){
+		for(var c=0; c<C; c++){
+			var oSpan=document.createElement('span');
+			oSpan.style.width=oBox.offsetWidth/C+'px';
+			oSpan.style.height=oBox.offsetHeight/R+'px';
+			oBox.appendChild(oSpan);
+			oSpan.style.left=c*oSpan.offsetWidth+'px';
+			oSpan.style.top=r*oSpan.offsetHeight+'px';
+			oSpan.style.backgroundPosition='-'+c*oSpan.offsetWidth+'px -'+r*oSpan.offsetHeight+'px';
+			
+			oSpan.innerHTML='<em class="front"></em><em class="back"></em>';
+			oSpan.children[0].style.backgroundPosition='-'+c*oSpan.offsetWidth+'px -'+r*oSpan.offsetHeight+'px';
+			oSpan.children[1].style.backgroundPosition='-'+c*oSpan.offsetWidth+'px -'+r*oSpan.offsetHeight+'px';
+		}
+	}
+};
+</script>
+</head>
+
+<body>
+<div id="box">
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>智能社-http://www.zhinengshe.com</title>
+<style>
+*{ margin:0; padding:0; list-style:none;}
+#box{ width:700px; height:400px; margin:100px auto; background:url(img/0.jpg) no-repeat; position:relative; perspective:1200px;}
+#box .page{ position:absolute; width:50%; height:100%; right:0; top:0; transform-style:preserve-3d; z-index:2; transform-origin:left center; transition:1s all ease;}
+#box .page span{ position:absolute; width:100%; height:100%; left:0; top:0;}
+#box .page span.front{ background:url(img/0.jpg) no-repeat right top;transform:translateZ(0.1px);}
+#box .page span.back{ background:url(img/1.jpg) no-repeat left top; transform:translateZ(-0.1px) scale(-1,1);}
+#box .page2{ position:absolute; width:50%; height:100%; right:0; top:0; background:url(img/1.jpg) no-repeat right top; z-index:1;}
+
+body:active #box .page{ transform:rotateY(-180deg);}
+</style>
+<script>
+
+</script>
+</head>
+
+<body>
+<div id="box">
+	<div class="page">
+    	<span class="front"></span>
+        <span class="back"></span>
+    </div>
+    <div class="page2"></div>
+</div>
+</body>
+</html>
