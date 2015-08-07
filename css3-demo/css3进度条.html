@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="author" content="智能社 - zhinengshe.com" />
+<meta name="copyright" content="智能社 - zhinengshe.com" />
+<meta name="description" content="智能社是一家专注于web前端开发技术的公司，目前主要提供JavaScript培训和HTML5培训两项服务，同时还推出了大量javascript基础知识教程，智能课堂为你带来全新的学习方法和快乐的学习体验。" />
+<title>智能社— http://www.zhinengshe.com</title>
+<style>
+@-webkit-keyframes test{
+	from{
+		left:0;		
+	}	
+	to{
+		left:-100%;		
+	}
+}
+#div2{ width:400px; height:50px; position:relative; overflow:hidden; margin:50px auto; border-radius:8px; border:1px solid #000;}
+#div1{ width:200%; height:50px; background:-webkit-repeating-linear-gradient(-60deg,red 0,red 10px,blue 10px, blue 20px);position:absolute; left:0; top:0; transition:4s all linear;
+	-webkit-animation-name:test;
+	-webkit-animation-duration:10s;
+	-webkit-animation-timing-function:linear;
+	-webkit-animation-iteration-count:infinite;
+}
+</style>
+<script>
+window.onload=function(){
+	var oC=document.getElementById('c1');
+	var oC2=document.getElementById('c2');
+	var oS=document.getElementById('s1');
+	var oS2=document.getElementById('s2');
+	var oDiv=document.getElementById('div1');
+	
+	oC.onchange=function(){
+		oS.innerHTML=this.value;
+		oS.style.color=this.value;
+		
+		oDiv.style.background='-webkit-repeating-linear-gradient(-30deg,'+oC.value+' 0,'+oC.value+' 10px,'+oC2.value+' 10px, '+oC2.value+' 20px)';
+	};
+	
+	oC2.onchange=function(){
+		oS2.innerHTML=this.value;
+		oS2.style.color=this.value;
+		oDiv.style.background='-webkit-repeating-linear-gradient(-30deg,'+oC.value+' 0,'+oC.value+' 10px,'+oC2.value+' 10px, '+oC2.value+' 20px)';
+	};
+};
+</script>
+</head>
+
+<body>
+<input type="color" value="#ff0000" id="c1">
+<input type="color" value="#0000ff" id="c2"><br>
+<span id="s1" style="color:red;">#ff000</span>
+<span id="s2" style="blue">#0000ff</span>
+<div id="div2">
+	<div id="div1"></div>
+</div>
+</body>
+</html>

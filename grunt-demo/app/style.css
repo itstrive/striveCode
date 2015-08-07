@@ -1,0 +1,5 @@
+@charset "utf-8";
+/* CSS Document */
+body{ background:#399; color:#fff;}
+#div1{ width:300px; height:300px; text-align:center; line-height:300px; font-size:50px; font-weight:bold; background:#f60;}
+
