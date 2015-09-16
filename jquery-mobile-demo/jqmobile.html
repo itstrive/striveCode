@@ -1,0 +1,303 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>jqMobile_Demo_by it老黑</title>
+<link rel="stylesheet" href="res/jquery.mobile-1.2.0.min.css" />
+<script src="res/jquery-1.8.2.min.js"></script>
+<script src="res/jquery.mobile-1.2.0.min.js"></script>
+<style>
+html,body{ overflow-x:hidden;}
+</style>
+</head>
+
+<body>
+<div data-role="page">
+	<div data-role="header">
+    	<a href="#" data-icon="refresh" onClick="location.reload()">刷新</a>
+    	<h1>首页</h1>
+        <a href="#" data-icon="grid" data-iconpos="right">菜单</a>
+    </div>
+    <div data-role="content">
+    	<ul data-role="listview">
+            <li><a href="#page2" data-transition="fade">钓鱼岛新闻（fade）</a></li>
+            <li><a href="#page2" data-transition="flip">钓鱼岛新闻(flip)</a></li>
+            <li><a href="#page2" data-transition="pop">钓鱼岛新闻(pop)</a></li>
+            <li><a href="#page2" data-transition="slide">钓鱼岛新闻(slide)</a></li>
+            <li><a href="#page2" data-transition="slidedown">钓鱼岛新闻(slidedown)</a></li>
+            <li><a href="#page2" data-transition="slideup">钓鱼岛新闻(slideup)</a></li>
+            <li><a href="#page2" data-transition="slidefade">钓鱼岛新闻(slidefade)</a></li>
+            <li><a href="#page2" data-transition="flow">钓鱼岛新闻(flow)</a></li>
+            <li><a href="#page2" data-transition="turn">钓鱼岛新闻(turn)</a></li>
+            <li class="ui-btn-active"><a href="#page2" data-transition="none">钓鱼岛新闻(none)</a></li>    
+        </ul>
+    </div>
+    <div data-role="footer" data-position="fixed">
+   		<div data-role="navbar">
+            <ul>
+                <li><a href="#formMsg" data-icon="info" data-transition="turn">表单信息</a></li>
+                <li><a href="#btnGroup" data-icon="custom" data-transition="flow">按钮组</a></li>
+                <li><a href="#d1" data-icon="star">dialog</a></li>
+                <li><a href="#list" data-icon="forward" data-transition="slide">列表</a></li>
+                <li><a href="#layout" data-icon="grid" data-transition="pop">列布局</a></li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="page2">
+	<div data-role="header">
+    	<a href="#" data-icon="back" data-rel="back">返回</a>
+        <h1>新闻页面</h1>
+   	</div>
+    <div data-role="content">
+    	<p style="text-align:center;">
+    		<a href="http://news.baidu.com" target="_blank"><img src="http://news.baidu.com/resource/img/logo_news_137_46.png" alt="百度新闻" /></a>
+        	<p>日本公明党代表山口那津男将自周二起访华，这是安倍新内阁成立后，第一位日本执政党领袖访问中国。山口将携带日本首相安倍晋三给中共中央总书记习近平的亲笔信，意在改善因钓鱼岛问题而恶化的中日关系。访华前，他在东京接受了本台记者的独家专访。</p>
+<p>日本联合执政党之一的公明党代表山口那津男访华前在东京的公明党总部接受了凤凰卫视的独家专访。山口代表对因钓鱼岛局势跌入谷底的中日关系现状表示深切忧虑，作为安倍新内阁成立后首位访华的执政党领袖，他主张钓鱼岛问题应当搁置，并尽快恢复两国领导人对话。</p>
+<p>日本公明党代表山口那津男：&ldquo;重要的是防止问题升级，预防不测事态，缓和紧张局势。我们要寻求对话窗口，政治家之间的对话非常重要，但日中间政治家对话已经中断。希望访华能从大局角度，成为改善中日关系的一步。&rdquo;</p>
+<p>山口这次访华将携带安倍首相亲笔信，期望和中共中央总书记习近平会面，提议早日恢复中日首脑会谈。</p>
+<p>记者：&ldquo;安倍首相也希望重开中日首脑会谈吗？&rdquo;</p>
+<p>日本公明党代表山口那津男：&ldquo;我认为安倍首相一定有这样的意愿。执政党的重要作用是创造这样的环境。日中要逐渐恢复沟通，最终举行首脑会谈，切实改善两国关系。&rdquo;</p>
+<p>对于连日来中国公务船和飞机频繁出现在钓鱼岛附近海域和上空，山口表示极为忧虑，他说为避免不测事态，将向中方提议中日尽快就海上安全联络机制达成共识，同时提议中日双方的军机都不要出现在钓鱼岛上空。</p>
+<p>公明党曾为实现1972年中日邦交正常化尽力，2010年中日撞船事件后山口也曾作为首个政党领袖访华，日本各界期待山口这次访华能够找到改善中日关系的突破点。</p>
+<p>在中日关系因为钓鱼岛问题而陷入中日邦交正常化40年来最差状态的当前，日本执政党之一的公民党代表访华能否真正推动中日领导人之间的对话，在日本国内也备受关注。</p>
+<p>凤凰卫视 李淼、楠濑浩水 日本东京报道
+                <span class="ifengLogo"><a href="http://www.ifeng.com/" target="_blank"><img src="http://img.ifeng.com/page/Logo.gif" width="15" height="17" /></a></span>
+            </p>
+        </p>
+    </div>
+    <div data-role="footer" data-position="fixed">
+    	<div data-role="navbar">
+        	<ul>
+            	<li><a href="#formMsg" data-icon="info" data-transition="turn">表单信息</a></li>
+                <li><a href="#btnGroup" data-icon="custom" data-transition="flow">按钮组</a></li>
+                <li><a href="#d1" data-icon="star">dialog</a></li>
+                <li><a href="#list" data-icon="forward" data-transition="slide">列表</a></li>
+                <li><a href="#layout" data-icon="grid" data-transition="pop">列布局</a></li>
+            </ul>
+        </div>
+   	</div>
+</div>
+
+<div id="d1" data-role="dialog">
+	<div data-role="header">
+        <h1>分享</h1>
+    </div>
+    <div data-role="content">
+    	<div data-role="controlgroup">
+        	<a href="#" data-role="button">aaaaaa</a>
+            <a href="#" data-role="button">bbbbbb</a>
+            <a href="#" data-role="button">cccccc</a>
+            <a href="#" data-role="button">dddddd</a>
+            <a href="#" data-role="button">eeeeee</a>
+        </div>
+    </div>
+</div>
+
+<div data-role="page" id="formMsg">
+	<div data-role="header">
+    	<a href="#" data-icon="back" data-rel="back" data-iconpos="notext" data-theme="b">返回</a>
+        <h2>表单信息</h2>
+    </div>
+    <div data-role="content">
+    	<select>
+        	<option>北京</option>
+            <option>天津</option>
+            <option>上海</option>
+        </select>
+        <input type="search" />
+        <input type="range" min="0" max="100" step="5" data-highlight='true' />
+        <select data-role="slider">
+        	<option>开</option>
+            <option>关</option>
+        </select>
+        <textarea></textarea>
+        
+        <label for="ch1">北京</label><input id="ch1" type="checkbox">
+        <label for="ch2">上海</label><input id="ch2" type="checkbox">
+        <label for="ch3">天津</label><input id="ch3" type="checkbox">
+        
+        <label for="r1">男</label><input id="r1" type="radio" name="sex" />
+        <label for="r2">女</label><input id="r2" type="radio" name="sex" />
+        
+        
+        
+        
+        <div data-role="collapsible" data-role="collapsible-set" data-content-theme="b" data-collapsed="false">
+        	<h4>登陆</h4>
+            <ul data-role="listview">
+            	<li data-role="fieldcontain"><label for="user">用户名:</label><input id="user" type="text" placeholder="用户名" /></li>
+                <li data-role="fieldcontain"><label for="pass">用户名:</label><input id="pass" type="password" placeholder="密码" /></li>
+                <li><input type="submit" value="login"/></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="footer" style="text-align:center;" data-position="fixed">
+    	<address style="height:30px; line-height:30px; color:#f60; font-size:12px;">by <a href="http://weibo.com/itstrive" target="_blank">it老黑</a> blog:<a href="http://www.itstrive.com" target="_blank">http://www.itstrive.com</a></address>
+    </div>
+</div>
+
+<div data-role="page" id="btnGroup">
+	<div data-role="header">
+    	<a href="#" data-rel="back" data-icon="back">返回</a>
+        <h3>按钮组</h3>
+    </div>
+    <div data-role="content">
+    	<div data-role="controlgroup" data-type="horizontal">
+        	<a href="#" data-role="button">按钮1</a>
+            <a href="#" data-role="button">按钮2</a>
+            <a href="#" data-role="button">按钮3</a>
+        </div>
+        
+        <div data-role="controlgroup" data-type="horizontal">
+        	<label for="c1">按钮1</label><input type="checkbox" id="c1" />
+            <label for="c2">按钮2</label><input type="checkbox" id="c2" />
+            <label for="c3">按钮3</label><input type="checkbox" id="c3" />
+        </div>
+        
+        <div data-role="controlgroup" data-type="horizontal">
+        	<label for="r1">按钮1</label><input type="radio" id="r1" name="btn"/>
+            <label for="r2">按钮2</label><input type="radio" id="r2" name="btn"/>
+            <label for="r3">按钮3</label><input type="radio" id="r3" name="btn"/>
+        </div>
+        
+        <div data-role="navbar">
+        	<ul>
+            	<li><a href="#" data-role="button">按钮1</a></li>
+                <li><a href="#" data-role="button">按钮2</a></li>
+                <li><a href="#" data-role="button">按钮3</a></li>
+                <li><a href="#" data-role="button">按钮4</a></li>
+            </ul>
+        </div>
+    </div>
+    <div data-role="footer" style="text-align:center;" data-position="fixed">
+    	<address style="height:30px; line-height:30px; color:#f60; font-size:12px;">by <a href="http://weibo.com/itstrive" target="_blank">it老黑</a> blog:<a href="http://www.itstrive.com" target="_blank">http://www.itstrive.com</a></address>
+    </div>
+</div>
+
+<div id="list" data-role="page">
+	<div data-role="header">
+    	<a href="#" data-icon="back" data-rel="back">返回</a>
+        <h4>列表</h4>
+    </div>
+    <div data-role="content">
+    	<ul data-role="listview">
+        	<li>
+            	<a href="###">
+                    <img src="res/1.jpg" alt="game" />
+                    <h2>江南style</h2>
+                    <p>《江南style》专辑封面
+    是一个韩国新词（neologism），指的是首尔江南区富裕时尚、豪华奢靡的生活方式。[1-4]这个词汇被《时代》杂志每周词汇列表列为周三词汇，意为一种与</p>
+            	</a>
+            </li>
+            <li>
+            	<a href="###">
+                    <img src="res/2.jpg" alt="game" />
+                    <h2>指的是首尔江南区富裕时尚、豪</h2>
+                    <p>指的是首尔江南区富裕时尚、豪指的是首尔江南区富裕时尚、豪指的是首尔江南区富裕时尚、豪指的是首尔江南区富裕时尚、豪指的是首尔江南区富裕时尚、豪</p>
+            	</a>
+            </li>
+        </ul>
+        
+        <ul data-role="listview" style="margin-top:30px;">
+        	<li data-role="list-divider">A</li>
+            <li>apple</li>
+            <li>anthing</li>
+            <li>abing</li>
+            <li data-role="list-divider">B</li>
+            <li>bing</li>
+            <li>blue</li>
+            <li>befroe</li>
+        </ul>
+        
+        <div data-role="collapsible" data-content-theme="d" style="margin-top:30px;">
+        	<h5>前端</h5>
+        	<ul data-role="listview">
+            	<li>javascript</li>
+                <li>css</li>
+                <li>html</li>
+            </ul>
+        </div>
+        
+        <div data-role="collapsible" data-content-theme="d">
+        	<h5>后台</h5>
+        	<ol data-role="listview">
+            	<li>php</li>
+                <li>java</li>
+                <li>.net</li>
+            </ol>
+        </div>
+        
+        <div data-role="collapsible-set">
+        	<div data-role="collapsible" data-content-theme="a">
+            	<h2>用户</h2>
+                <ul data-role="listview">
+                	<li>管理员</li>
+                    <li>普通用户</li>
+                    <li>VIP</li>
+                </ul>
+            </div>
+            <div data-role="collapsible" data-content-theme="c">
+            	<h2>用户</h2>
+                <ul data-role="listview">
+                	<li>管理员</li>
+                    <li>普通用户</li>
+                    <li>VIP</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div data-role="footer" style="text-align:center;" data-position="fixed">
+    	<address style="height:30px; line-height:30px; color:#f60; font-size:12px;">by <a href="http://weibo.com/itstrive" target="_blank">it老黑</a> blog:<a href="http://www.itstrive.com" target="_blank">http://www.itstrive.com</a></address>
+    </div>
+</div>
+
+<div id="layout" data-role="page">
+	<div data-role="header">
+    	<a href="#" data-rel="back" data-icon="back">返回</a>
+        <h2>布局</h2>
+    </div>
+    <div data-role="content">
+    	<h5>两列布局</h5>
+    	<div class="ui-grid-a">
+        	<div class="ui-block-a" style="border:1px solid #999; text-align:center;">块1</div>
+            <div class="ui-block-b" style="border:1px solid #999; text-align:center;">块2</div>
+        </div>
+        
+        <h5>三列布局</h5>
+    	<div class="ui-grid-b">
+        	<div class="ui-block-a" style="border:1px solid #999; text-align:center;">块1</div>
+            <div class="ui-block-b" style="border:1px solid #999; text-align:center;">块2</div>
+            <div class="ui-block-c" style="border:1px solid #999; text-align:center;">块3</div>
+        </div>
+        
+        <h5>四列布局</h5>
+    	<div class="ui-grid-c">
+        	<div class="ui-block-a" style="border:1px solid #999; text-align:center;">块1</div>
+            <div class="ui-block-b" style="border:1px solid #999; text-align:center;">块2</div>
+            <div class="ui-block-c" style="border:1px solid #999; text-align:center;">块3</div>
+            <div class="ui-block-d" style="border:1px solid #999; text-align:center;">块3</div>
+        </div>
+        
+        <h5>3*3布局</h5>
+    	<div class="ui-grid-b">
+        	<div class="ui-block-a" style="border:1px solid #999; text-align:center;">块1</div>
+            <div class="ui-block-b" style="border:1px solid #999; text-align:center;">块2</div>
+            <div class="ui-block-c" style="border:1px solid #999; text-align:center;">块3</div>
+            <div class="ui-block-a" style="border:1px solid #999; text-align:center;">块1</div>
+            <div class="ui-block-b" style="border:1px solid #999; text-align:center;">块2</div>
+            <div class="ui-block-c" style="border:1px solid #999; text-align:center;">块3</div>
+            <div class="ui-block-a" style="border:1px solid #999; text-align:center;">块1</div>
+            <div class="ui-block-b" style="border:1px solid #999; text-align:center;">块2</div>
+            <div class="ui-block-c" style="border:1px solid #999; text-align:center;">块3</div>
+        </div>
+        依次类推……
+    </div>
+    <div data-role="footer" style="text-align:center;" data-position="fixed">
+    	<address style="height:30px; line-height:30px; color:#f60; font-size:12px;">by <a href="http://weibo.com/itstrive" target="_blank">it老黑</a> blog:<a href="http://www.itstrive.com" target="_blank">http://www.itstrive.com</a></address>
+    </div>
+</div>
+</body>
+</html>
