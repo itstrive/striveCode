@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>原生html5重力感应-手机摇一摇demo</title>
+<meta name="viewport" content="width=device-width">
+<style>
+#div1{ width:200px; height:200px; background:red; margin:0 auto; text-align:center; line-height:200px; color:#fff; text-shadow:2px 2px 5px #000;}
+</style>
+<script>
+//测试重力感应
+//alert(window.DeviceMotionEvent);
+//手机摇一摇
+var x,y,z,lastX,lastY,lastZ;
+var num=30;
+if(window.DeviceMotionEvent){
+	window.addEventListener('devicemotion',function(ev){
+		var acceleration=ev.accelerationIncludingGravity;
+		x=acceleration.x;
+		y=acceleration.y;
+		z=acceleration.z;
+		if(
+			Math.abs(x-lastX)>num ||
+			Math.abs(y-lastY)>num ||
+			Math.abs(z-lastZ)>num
+		){
+			var oDiv=document.getElementById('div1');
+			oDiv.style.background='rgb('+parseInt(Math.random()*256)+','+parseInt(Math.random()*256)+','+parseInt(Math.random()*256)+')';
+			oDiv.innerHTML='手机摇动了';
+		}
+		
+		lastX=x;
+		lastY=y;
+		lastZ=z;
+	},false);
+}
+</script>
+</head>
+
+<body>
+<div id="div1"></div>
+</body>
+</html>
