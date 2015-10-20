@@ -1,0 +1,24 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>html5-api webSocket</title>
+<style>
+
+</style>
+<script>
+var sock=new WebSocket('ws://localhost:8081');
+
+sock.onopen=function(){
+	sock.send(12);	
+};
+
+sock.onmessage=function(ev){
+	alert(ev.data);	
+};
+</script>
+</head>
+
+<body>
+</body>
+</html>
