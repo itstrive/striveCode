@@ -1,0 +1,1 @@
+window.onload=function(){function n(n,o){alert(n+o)}document.onclick=function(){n(12,6)}},function(){alert(1)}();
