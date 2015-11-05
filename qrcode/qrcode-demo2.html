@@ -13,13 +13,16 @@ body{ text-align:center;}
 window.onload=function(){
 	var oQrCode=document.getElementById('qrcode');
 	var oT=document.getElementById('t1');
+	var oT2=document.getElementById('t2');
 	var oBtn=document.getElementById('btn1');
+	var oSpan=document.querySelector('#qrcode .img');
 	
 	var qrCode=new QRCode(oQrCode,{width:200, height:200});
 	
 	qrCode.makeCode('http://www.itstrive.com');	 //默认随便给一个
 	
 	oBtn.onclick=function(){
+		oSpan.style.backgroundImage='url('+oT2.value+')';
 		qrCode.makeCode(oT.value);	
 	};
 };
@@ -30,7 +33,8 @@ window.onload=function(){
 <div id="qrcode">
 	<span class="img"></span>
 </div>
-<input type="text" id="t1">
+二维码地址：<input type="text" placeholder="http://www.baidu.com" id="t1">
+中心图像地址:<input type="url" placeholder="https://www.baidu.com/img/bd_logo1.png" id="t2">
 <input type="button" value="生成二维码" id="btn1">
 </body>
 </html>
