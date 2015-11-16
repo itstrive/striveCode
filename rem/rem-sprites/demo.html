@@ -1,0 +1,65 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>REM-sprites</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+<style>
+*{ margin:0; padding:0; list-style:none;}
+html{ font-size:20px;}
+div{ float:left; margin:0.2rem;}
+.icon1{ width:3.5rem; height:3.5rem; background:url(sprite.png) no-repeat; overflow:hidden; background-size:3.5rem;}
+.icon2{ width:3.5rem; height:3.5rem; background:url(sprite.png) no-repeat 0 -3.5rem; overflow:hidden; background-size:3.5rem;}
+.icon3{ width:3.5rem; height:3.5rem; background:url(sprite.png) no-repeat 0 -7rem; overflow:hidden; background-size:3.5rem;}
+.icon4{ width:3.5rem; height:3.5rem; background:url(sprite.png) no-repeat 0 -10.5rem; overflow:hidden; background-size:3.5rem;}
+.icon5{ width:3.5rem; height:3.5rem; background:url(sprite.png) no-repeat 0 -14rem; overflow:hidden; background-size:3.5rem;}
+
+
+/*以下是解决问题的代码 icon4 icon5解决了此问题*/
+.icon-fix {
+	background: none;
+	position: relative;
+	overflow: hidden;
+}
+
+.icon-fix:after {
+	content: '';
+	display: block;
+	width: 10000%;
+	height: 10000%;
+	position: absolute;
+	left: 0;
+	top: 0;
+	background-image: url(sprite.png);
+	background-repeat: no-repeat;
+	background-size: 350rem;
+	-webkit-transform-origin: 0 0;
+	-webkit-transform: scale(.01);
+	transform-origin: 0 0;
+	transform: scale(.01);
+}
+
+.icon4:after {
+	background-position: 0 -1050rem;
+}
+.icon5:after {
+	background-position: 0 -1400rem;
+}
+</style>
+<script>
+window.onload=window.onresize=function(){
+	document.documentElement.style.fontSize=document.documentElement.clientWidth/16+'px';	
+};
+</script>
+</head>
+
+<body>
+<div class="icon1"></div>
+
+<div class="icon2"></div>
+<div class="icon3"></div>
+
+<div class="icon4 icon-fix"></div>
+<div class="icon5 icon-fix"></div>
+</body>
+</html>
