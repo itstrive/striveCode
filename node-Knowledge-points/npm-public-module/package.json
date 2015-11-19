@@ -1,0 +1,16 @@
+{
+  "name": "pqs",
+  "version": "1.0.1",
+  "description": "pqs like node paserquerystring",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "strive_pqs",
+    "parsequerystring"
+  ],
+  "author": "strive",
+  "license": "MIT",
+  "dependencies": {}
+}

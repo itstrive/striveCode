@@ -1,0 +1,1 @@
+exports.parse=require('./pqs').pqs;
