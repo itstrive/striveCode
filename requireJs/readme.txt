@@ -22,9 +22,9 @@
    node r.js -o baseUrl=./ name=main out=main-build.js
 3. 除了直接在命令行提供参数设置，也可以将参数写入一个文件，假定文件名为build.js.
   ({
-    baseUrl: ".",  /*当前相对的路径*/
+    baseUrl: "js",  /*当前相对的路径*/
     name: "main", /* 程序的主入口文件*/
-    out: "main-built.js"  /*打包完的文件可以加目录*/
+    out: "dest/main-build.js"  /*打包完的文件可以加目录*/
    })
    然后直接运行：node r.js -o build.js
 
