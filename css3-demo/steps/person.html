@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>steps-demo</title>
+<style>
+body{ background:#000;}
+@keyframes test{
+	0%{
+		background-position:2000px 0;
+	}
+	100%{
+		background-position:0 0;
+	}	
+}
+.walk{ margin:126px; width:126px; height:150px; background:url(person.jpg);
+	animation:test 0.35s steps(16) infinite;
+}
+</style>
+<script>
+
+</script>
+</head>
+
+<body>
+<div class="walk"></div>
+</body>
+</html>

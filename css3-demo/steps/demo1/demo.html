@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>steps-demo</title>
+<style>
+@keyframes down{
+	0%{
+		background-position:-128px 0;
+	}
+	100%{
+		background-position:0 0;
+	}	
+}
+@keyframes top{
+	0%{
+		background-position:-128px -145px;
+	}
+	100%{
+		background-position:0 -145px;
+	}	
+}
+@keyframes left{
+	0%{
+		background-position:-128px -48px;
+	}
+	100%{
+		background-position:0 -48px;
+	}	
+}
+@keyframes right{
+	0%{
+		background-position:-128px -96px;
+	}
+	100%{
+		background-position:0 -96px;
+	}	
+}
+div{ margin:10px; width:32px; height:49px; background:url(g.png)}
+#down{animation:down 0.5s steps(4) infinite;}
+#top{animation:top 1s steps(4) infinite;}
+#left{animation:left 1.5s steps(4) infinite;}
+#right{animation:right 2s steps(4) infinite;}
+</style>
+<script>
+
+</script>
+</head>
+
+<body>
+<div id="down"></div>
+<div id="top"></div>
+<div id="left"></div>
+<div id="right"></div>
+</body>
+</html>
