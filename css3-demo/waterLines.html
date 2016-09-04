@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>BubbleLines---</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        @-webkit-keyframes help-bubble-pulse {
+            0% {
+                transform: scale(1);
+                opacity: .75
+            }
+
+            25% {
+                transform: scale(1);
+                opacity: .75
+            }
+
+            100% {
+                transform: scale(2.5);
+                opacity: 0
+            }
+        }
+
+        @keyframes help-bubble-pulse {
+            0% {
+                transform: scale(1);
+                opacity: .75
+            }
+
+            25% {
+                transform: scale(1);
+                opacity: .75
+            }
+
+            100% {
+                transform: scale(2.5);
+                opacity: 0
+            }
+        }
+
+        @-moz-keyframes help-bubble-pulse {
+            0% {
+                transform: scale(1);
+                opacity: .75
+            }
+
+            25% {
+                transform: scale(1);
+                opacity: .75
+            }
+
+            100% {
+                transform: scale(2.5);
+                opacity: 0
+            }
+        }
+
+        @-o-keyframes help-bubble-pulse {
+            0% {
+                transform: scale(1);
+                opacity: .75
+            }
+
+            25% {
+                transform: scale(1);
+                opacity: .75
+            }
+
+            100% {
+                transform: scale(2.5);
+                opacity: 0
+            }
+        }
+
+        .strive-bubble{
+            display: block;
+            cursor: pointer;
+            color: #07c;
+
+            position: absolute;
+            left:200px;
+            top:200px;
+        }
+        .strive-bubble:after{
+            content: "";
+            background-color: #3af;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            position: absolute;
+            display: block;
+            top: 1px;
+            left: 1px
+        }
+        .strive-bubble:hover:after{
+            background-color: #0095ff;
+        }
+        .strive-bubble .help-bubble-outer-dot {
+            margin: 1px;
+            display: block;
+            text-align: center;
+            opacity: 1;
+            background-color: rgba(0,149,255,0.4);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            -webkit-animation: help-bubble-pulse 1.5s linear infinite;
+            -moz-animation: help-bubble-pulse 1.5s linear infinite;
+            -o-animation: help-bubble-pulse 1.5s linear infinite;
+            animation: help-bubble-pulse 1.5s linear infinite
+        }
+
+        .strive-bubble .help-bubble-inner-dot {
+            background-position: absolute;
+            display: block;
+            text-align: center;
+            opacity: 1;
+            background-color: rgba(0,149,255,0.4);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            -webkit-animation: help-bubble-pulse 1.5s linear infinite;
+            -moz-animation: help-bubble-pulse 1.5s linear infinite;
+            -o-animation: help-bubble-pulse 1.5s linear infinite;
+            animation: help-bubble-pulse 1.5s linear infinite
+        }
+
+        .strive-bubble .help-bubble-inner-dot:after {
+            content: "";
+            background-position: absolute;
+            display: block;
+            text-align: center;
+            opacity: 1;
+            background-color: rgba(0,149,255,0.4);
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            -webkit-animation: help-bubble-pulse 1.5s linear infinite;
+            -moz-animation: help-bubble-pulse 1.5s linear infinite;
+            -o-animation: help-bubble-pulse 1.5s linear infinite;
+            animation: help-bubble-pulse 1.5s linear infinite
+        }
+    </style>
+    <script>
+        function Bubble(json){
+            this.options=json || {};
+            this.options.count=this.options.count || 1;
+
+            for(var i=this.options.count; i>=0; i--){
+                this.create();
+            }
+        }
+        Bubble.prototype.rnd=function(n,m){
+            return parseInt(Math.random()*(m-n))+n;
+        };
+        Bubble.prototype.create=function(){
+            var oSpan=document.createElement('span');
+            oSpan.className='strive-bubble';
+            oSpan.style.left=this.rnd(0,window.outerWidth)+'px';
+            oSpan.style.top=this.rnd(0,window.outerHeight)+'px';
+            var innerChild='<span class="help-bubble-outer-dot"><span class="help-bubble-inner-dot"></span> </span>';
+            oSpan.insertAdjacentHTML('afterBegin',innerChild);
+            document.body.appendChild(oSpan);
+        };
+
+        window.onload=function(){
+            new Bubble({
+                count:5
+            });
+        };
+    </script>
+</head>
+<body>
+
+    <span class="strive-bubble">
+        <span class='help-bubble-outer-dot'>
+            <span class='help-bubble-inner-dot'></span>
+        </span>
+    </span>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
