@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        [v-cloak]{
+            display: none;
+        }
+    </style>
+    <link rel="stylesheet" href="bootstrap.min.css">
+    <script src="jquery-1.7.2.js"></script>
+    <script src="bootstrap.js"></script>
+
+    <script src="vue.js"></script>
+    <script>
+        window.onload=function(){
+            new Vue({
+                el:'#vue-box',
+                data:{
+                    msgArr:[],
+                    username:'',
+                    age:'',
+                    removeIndex:-1,
+                    textMsg:'确认删除么?'
+                },
+                methods:{
+                    addMsg:function(){
+                        this.msgArr.push({
+                            name:this.username,
+                            age:this.age
+                        });
+
+                        this.username='';
+                        this.age='';
+                    },
+                    removeMsg:function(index){
+                        if(index==-2){
+                            this.msgArr=[];
+                        }else{
+                            this.msgArr.splice(index,1);
+                        }
+                    },
+                    removeChange:function(index,msg){
+                        this.removeIndex=index;
+                        this.textMsg=msg;
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+<body id="vue-box">
+    <div class="modal fade bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true" data-index="{{removeIndex}}">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">{{textMsg}}</h4>
+                </div>
+                <div class="modal-body text-right">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">取消</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" @click="removeMsg(removeIndex)">确认</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <form role="form">
+            <div class="form-group">
+                <label for="username">用户名:</label>
+                <input type="text" id="username" class="form-control" placeholder="填写用户名" v-model="username" />
+            </div>
+            <div class="form-group">
+                <label for="age">年　龄:</label>
+                <input type="text" id="age" class="form-control" placeholder="填写年龄" v-model="age" @keyup.enter="addMsg()">
+            </div>
+            <div class="form-group">
+                <input type="button" class="btn btn-primary" value="添加" @click="addMsg()">
+                <input type="reset" class="btn btn-default" value="重置">
+            </div>
+        </form>
+    </div>
+
+    <div class="container">
+        <table class="table table-bordered table-hover">
+            <tr class="btn-danger">
+                <th class="text-center">ID</th>
+                <th class="text-center">名字</th>
+                <th class="text-center">年龄</th>
+                <th class="text-center">操作</th>
+            </tr>
+            <tr class="text-center" v-for="item in msgArr">
+                <td>{{$index+1}}</td>
+                <td>{{item.name}}</td>
+                <td>{{item.age}}</td>
+                <td>
+                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target=".bs-example-modal-sm" @click="removeChange($index,'确认删除么?')">删除</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="text-right" v-cloak v-show="msgArr.length!=0">
+                    <button class="btn btn-danger btn-sm" @click="removeChange(-2,'确认删除全部么?')" data-toggle="modal" data-target=".bs-example-modal-sm">删除全部</button>
+                </td>
+            </tr>
+            <tr>
+                <td colspan="4" class="text-center" v-show="msgArr.length==0">
+                    <p>暂无数据...</p>
+                </td>
+            </tr>
+        </table>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
