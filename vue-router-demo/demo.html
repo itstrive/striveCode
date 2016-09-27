@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strive——http://www.itstrive.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        .v-link-active{
+            color: #f60;
+            font-size: 20px;
+        }
+    </style>
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li>
+                <a v-link="{path:'/home'}">主页</a>
+            </li>
+            <li>
+                <a v-link="{path:'/news'}">新闻</a>
+            </li>
+        </ul>
+        <router-view></router-view>
+    </div>
+
+    <script>
+        var Home=Vue.extend({
+            template:'<h3>我是主页的标题</h3>'
+        });
+
+        var News=Vue.extend({
+            template:'<h3>我是新闻页的标题</h3>'
+        });
+
+        var App=Vue.extend({});
+
+        var router=new VueRouter();
+
+        router.map({
+            '/home':{
+                component:Home
+            },
+            '/news':{
+                component:News
+            }
+        });
+
+        router.start(App,'#box');
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
