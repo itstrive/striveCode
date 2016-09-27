@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strive——http://www.itstrive.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+
+    </style>
+    <script src="vue.js"></script>
+    <script>
+        var Parent=Vue.extend({
+            template:'#parent',
+            data:function(){
+                return {
+                    msg:'my name is child'
+                }
+            },
+            methods:{
+                send:function(){
+                    this.$emit('child-say',this.msg);
+                }
+            }
+        });
+        window.onload=function(){
+            new Vue({
+                el:'#box',
+                data:{
+                    a:''
+                },
+                components:{
+                    'child-com':Parent
+                },
+                methods:{
+                    handler(msg){
+                        this.a=msg;
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <template id="parent">
+        <div>
+            <input type="button" value="点击" v-on:click="send()">
+        </div>
+    </template>
+
+    <div id="box">
+        父级:{{a}}
+        <hr>
+
+        <child-com v-on:child-say="handler">
+
+        </child-com>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

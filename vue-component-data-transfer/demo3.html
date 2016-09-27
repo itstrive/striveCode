@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strive——http://www.itstrive.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+
+    </style>
+    <script src="vue.js"></script>
+    <script>
+        var Parent=Vue.extend({
+            template:'#parent',
+            props:['msg'],
+            data:function(){
+                return {
+                    well:'well',
+                    msg:''
+                }
+            },
+            methods:{
+                send(){
+                    this.$dispatch('child-msg',this.well);
+                }
+            },
+            events:{
+               'aaaa':function(a){
+                   this.msg=a;
+               }
+            }
+        });
+        window.onload=function(){
+            new Vue({
+                el:'#box',
+                data:{
+                    msg:'welcome vue'
+                },
+                components:{
+                    'child-com':Parent
+                },
+                methods:{
+                    show:function(){
+                        //alert(this);
+                        this.msg='123';
+                        this.$broadcast('aaaa',this.msg);
+                    }
+                },
+                events:{
+                    'child-msg':function(a){
+                        this.msg=a;
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <template id="parent">
+        <div @click="send">
+            子级: {{msg}}
+        </div>
+    </template>
+
+    <div id="box">
+        <input type="button" value="按钮" @click="show">
+        父级:{{msg}}
+        <hr>
+
+        <child-com>
+
+        </child-com>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
