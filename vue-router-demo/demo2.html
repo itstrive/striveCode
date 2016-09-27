@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>String——http://www.itstrive.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        .v-link-active{
+            color: #f60;
+            font-size: 20px;
+        }
+    </style>
+    <script src="vue.js"></script>
+    <script src="vue-router.js"></script>
+
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li>
+                <a v-link="{path:'/home'}">主页</a>
+            </li>
+            <li>
+                <a v-link="{path:'/news'}">新闻</a>
+            </li>
+        </ul>
+        <router-view></router-view>
+    </div>
+
+    <template id="home_tpl">
+        <h1>我是主页</h1>
+        <div>
+            <a v-link="{path:'/home/login'}">用户登录</a>
+            <a v-link="{path:'/home/reg'}">用户注册</a>
+        </div>
+        <router-view></router-view>
+    </template>
+
+    <template id="news_tpl">
+        <h3>我是新闻页面</h3>
+        <div>
+            <a v-link="{path:'/news/detail/001'}">新闻001</a>
+            <a v-link="{path:'/news/detail/002'}">新闻002</a>
+        </div>
+        <router-view></router-view>
+    </template>
+
+    <template id="detail_tpl">
+        <div style="width:200px; height: 200px; border:1px solid #000;">
+            {{$route.params.id}}
+        </div>
+    </template>
+
+    <script>
+        var Home=Vue.extend({
+            template:'#home_tpl'
+        });
+
+        var News=Vue.extend({
+            template:'#news_tpl'
+        });
+
+        var Login=Vue.extend({
+            template:'<strong>我是用户登录</strong>'
+        });
+
+        var Reg=Vue.extend({
+            template:'<em>我是用户注册</em>'
+        });
+
+        var Detail=Vue.extend({
+            template:'#detail_tpl'
+        });
+
+
+        var App=Vue.extend({});
+
+        var router=new VueRouter();
+
+        router.map({
+            '/home':{
+                component:Home,
+                subRoutes:{
+                    'login':{
+                        component:Login
+                    },
+                    'reg':{
+                        component:Reg
+                    }
+                }
+            },
+            '/news':{
+                component:News,
+                subRoutes:{
+                    'detail/:id':{
+                        component:Detail
+                    }
+                }
+            }
+        });
+
+        router.start(App,'#box');
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
