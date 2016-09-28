@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strive——http://www.itstrive.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        ul {
+            padding-left: 0;
+            font-family: Helvetica, Arial, sans-serif;
+        }
+        html, body{
+            width: 100%;
+            overflow: hidden;
+        }
+        #box{
+            width:200px;
+            margin: 50px auto;
+        }
+    </style>
+    <link rel="stylesheet" href="animate.css">
+    <script src="vue.js"></script>
+    <script>
+        window.onload=function(){
+            new Vue({
+                el:'#box',
+                data:{
+                    query:'',
+                    list:[
+                        {msg:'apple'},
+                        {msg:'banana'},
+                        {msg:'pear'},
+                        {msg:'orange'}
+                    ]
+                },
+                transitions:{
+                    bounce:{
+                        enterClass:'zoomInLeft',
+                        leaveClass:'zoomOutRight'
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <div id="box">
+        <input type="text" v-model="query">
+        <ul>
+            <li class="animated" v-for="item in list| filterBy query" transition="bounce" stagger="50">
+                {{item.msg}}
+            </li>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
