@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>itstrive--cropper-demo</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        .container{ width:500px; height:500px;}
+        .container,#btn1{
+            display: block;
+            vertical-align: middle;
+            float: left;
+        }
+        #btn1{ padding: 10px 20px; margin: 0 50px;}
+        .box-container{float: left;}
+    </style>
+    <link rel="stylesheet" href="lib/cropper.min.css">
+    <script src="lib/jquery.min.js"></script>
+    <script src="lib/cropper.min.js"></script>
+    <script>
+        // 官网: https://fengyuanchen.github.io/cropper/
+        $(function(){
+            var oImg=$('.img1')[0];
+            var oC=document.getElementById('c1');
+            var gd=oC.getContext('2d');
+
+            var scale=2;
+
+            $('.container img').cropper({
+                aspectRatio: NaN,
+                crop: function(data){
+                    var sx=data.x;
+                    var sy=data.y;
+                    var sw=data.width;
+                    var sh=data.height;
+
+                    //生成图形操作
+                    $('#btn1').click(function(){
+                        gd.clearRect(0,0,oC.width,oC.height);
+                        gd.drawImage(oImg,
+                            sx,sy,sw,sh,
+                            0,0,sw/scale,sh/scale
+                        );
+                    });
+                }
+            });
+
+
+        });
+    </script>
+</head>
+<body>
+    <div class="container">
+        <img src="m.jpg" class="img1">
+    </div>
+    <input type="button" value="生成" id="btn1">
+    <div class="box-container">
+        <canvas id="c1" width="500" height="500"></canvas>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
