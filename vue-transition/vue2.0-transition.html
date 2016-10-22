@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Strive——http://www.itstrive.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        html,body{
+            height:100%;
+            overflow: hidden;
+        }
+    </style>
+    <script src="vue2.0.js"></script><!--需要引入2.0的库文件-->
+    <link rel="stylesheet" href="animate.css">
+    <script>
+        window.onload=function(){
+            new Vue({
+                el:'#box',
+                data:{
+                    show:true
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <div id="box">
+        <input type="button" value="切换" @click=" show=!show">
+
+        <transition enter-active-class="zoomInLeft" leave-active-class="zoomOutRight">
+            <p v-show="show" class="animated">我是一个段落元素</p>
+        </transition>
+
+        <transition-group enter-active-class="bounceInLeft" leave-active-class="bounceOutRight">
+            <p v-show="show" class="animated" :key="1">我是一个段落元素</p>
+            <div v-if="show" class="animated" :style="{
+                width:'100px',
+                height:'100px',
+                background:'red'
+            }" :key="2"></div>
+        </transition-group>
+
+        <!--
+            enter-active-class  就是动画进入的class，  zoomInLeft这个class在animate.css里面有定义
+            同理: leave-active-class一样
+        -->
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
