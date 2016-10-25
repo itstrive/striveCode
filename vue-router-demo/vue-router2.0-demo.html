@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>itstrive</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+
+    </style>
+    <!--<script src="../vue.min.js"></script>
+    <script src="../vue-router@2.0.0.js"></script>--->
+</head>
+<body>
+    <div id="box">
+        <ul>
+            <li>
+                <router-link to="/home">主页</router-link>
+            </li>
+            <li>
+                <router-link to="/news">新闻</router-link>
+            </li>
+        </ul>
+        <div>
+            <router-view></router-view>
+        </div>
+    </div>
+
+    <script>
+        var routes=[
+            {path:'/home', component:{
+                template:'<h3>我是主页^_^</h3>'
+            }},
+            {path:'/news', component:{
+                template:'<h3>我是新闻^_^</h3>'
+            }}
+        ];
+
+        var router=new VueRouter({
+            routes:routes
+        });
+
+        new Vue({
+            router:router
+        }).$mount('#box');
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
