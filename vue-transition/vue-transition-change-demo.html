@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <style>
+        ul{
+            margin:0 auto;
+            overflow: hidden;
+            border: 1px dashed #A5BCFF;
+        }
+        li{
+            width:100px;
+            height:100px;
+            list-style:none;
+            background: #ccc;
+            margin: 10px;
+            float: left;
+            font-size: 30px;
+            color: #fff;
+            text-align: center;
+            line-height: 100px;
+        }
+    </style>
+    <link rel="stylesheet" href="../animate.css">
+    <script src="vue2.0.js"></script>
+    <script>
+        window.onload=function(){
+            new Vue({
+                el:'#box',
+                data:{
+                    arr:[1,2],
+                    arr2:[]
+                },
+                methods:{
+                    add(){
+                        this.arr.push(this.arr.length+1);
+                    },
+                    pop(){
+                        this.arr.pop();
+                    },
+                    move(){
+                        this.arr2.push(this.arr.pop());
+                    }
+                }
+            });
+        };
+    </script>
+</head>
+<body>
+    <div id="box">
+        <input type="button" value="添加" @click="add">
+        <input type="button" value="删除" @click="pop">
+        <ul>
+            <transition-group enter-active-class="zoomIn" leave-active-class="zoomOut">
+                <li class="animated" v-for="(val,index) in arr" :key="index">
+                    {{val}}
+                </li>
+            </transition-group>
+        </ul>
+        <hr>
+        <input type="button" value="移动到另一个ul里面" @click="move">
+
+        <ul>
+            <transition-group enter-active-class="bounceIn" leave-active-class="bounceOut">
+            <li class="animated" v-for="(val,index) in arr2" :key="index">
+                {{val}}
+            </li>
+            </transition-group>
+        </ul>
+    </div>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
