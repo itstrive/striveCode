@@ -1,0 +1,12 @@
+/**index.wxss**/
+.container{
+    height:230px;
+}
+.audio-item{
+    overflow: hidden;
+    padding-left:10px;
+    height:40px;
+    line-height: 40px;
+    border-bottom: 1px dashed #000;
+    font-size: 14px;
+}

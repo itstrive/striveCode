@@ -1,0 +1,28 @@
+/**index.wxss**/
+.scroll-view{
+  height:300px;
+  box-sizing: border-box;
+}
+.item{
+  height:30px;
+  line-height: 30px;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px dotted #000;
+  font-size: 12px;
+}
+.item-title{
+  color: #282828;
+  text-indent: 10px;
+  max-width:200px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.author-name{
+  margin-right:10px;
+  color: red; 
+  font-weight: bold;
+  max-width:100px;
+  overflow: hidden;
+}

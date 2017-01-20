@@ -1,0 +1,13 @@
+<!--logs.wxml-->
+<view class="container">
+  <picker mode="date" bindchange="changeDate">
+    <button type="primary">选择日期</button>
+  </picker>
+
+  <view class="item">阳历:{{nowDate}}</view>
+  <view class="item">阴历:{{calendarData.lunar}}</view>
+  <view class="item">星期:{{calendarData.weekday}}</view>
+  <view class="item">年:{{calendarData.animalsYear}}</view>
+  <view class="item">不适: {{calendarData.avoid}}</view>
+  <view class="item">适合: {{calendarData.suit}}</view>
+</view>

@@ -1,0 +1,9 @@
+<!--index.wxml-->
+<audio poster="{{poster}}" name="{{name}}" src="{{src}}" controls author="{{author}}" style="margin-left:10px;" id="audio"></audio>
+<scroll-view class="container" scroll-y>
+    <view class="audio-item" wx:key="{{key}}" wx:for="{{musicList}}">
+        <icon type="info" size="15"></icon>
+        [{{item.artists[0].name}}]  
+        <text style="color:#399;" bindtap="playSong" data-author="{{item.artists[0].name}}" data-url="{{item.mp3Url}}" data-name="{{item.name}}" data-pic="{{item.album.picUrl}}">{{item.name}}</text>
+    </view>
+</scroll-view>

@@ -1,0 +1,11 @@
+<!--index.wxml-->
+<view class="container">
+  <button type="primary" bindtap="get">获取最新新闻</button>
+
+  <scroll-view scroll-y class="scroll-view">
+    <view class="item" wx:for="{{newData}}" wx:key="{{index}}">
+      <text class="item-title">{{item.title}}</text>
+      <text class="author-name">[{{item.author_name}}]</text>
+    </view>
+  </scroll-view>
+</view>
