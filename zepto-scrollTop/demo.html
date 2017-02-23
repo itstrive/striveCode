@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>智能社——http://www.zhinengshe.com</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="zepto.min.js"></script>
+    <script src="zepto-scrolltop.js"></script>
+    <style>
+        .btn1{
+            position: fixed;
+            right:20px;
+            bottom:20px;
+            padding: 20px;
+        }
+    </style>
+    <script>
+        $(function(){
+            $('#btn1').on('tap',function(){
+               $.scrollTop({duration:1000, target:100});
+            });
+            $('#btn2').on('tap',function(){
+                $.scrollTop();
+            });
+        });
+    </script>
+</head>
+<body style="height:3000px;">
+<p>welcome to</p>
+<p style="margin-top:100px">welcome to 100</p>
+
+<input class="btn1" type="button" value="回到顶部100" id="btn1">
+<input class="btn1" type="button" value="回到顶部0" id="btn2" style="right:140px">
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
