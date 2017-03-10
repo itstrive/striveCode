@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Echarts--柱状图</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="echarts.min.js"></script>
+    <style>
+
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!--
+        =======资源运输量(标题)=======
+                煤炭	    羊毛	    石油(图例)
+        2013年	352吨	17吨	    983吨        数据
+        2014年	421吨	18吨	    1290吨
+        2015年	587吨	21吨	    1602吨
+        2016年	964吨	39吨	    5421吨
+
+        每个图标需要由: 标题、图例、数据 构成
+    -->
+    <div id="div1" style="width:800px; height:600px;"></div>
+    <script>
+        var oDiv=document.querySelector('#div1');
+        let myChart=echarts.init(oDiv);
+
+        let options={ //配置项
+            title:{
+                text:'资源运输表' //标题
+            },
+            legend:{
+                data:['煤炭','羊毛','石油']  //图例
+            },
+            xAxis:{  //x轴的数据
+                data:['2012年','2013年','2014年','2015年']
+            },
+            tooltip:{},  //鼠标提示
+            yAxis:{},  //Y方向在这里没用，但是必须填写
+            series:[{  //数据
+                name:'煤炭',
+                type:'bar',
+                data:[345,12,890,101]
+            },{
+                name:'羊毛',
+                type:'bar',
+                data:[345,120,890,101]
+            },{
+                name:'石油',
+                type:'bar',
+                data:[345,12,890,101]
+            }]
+        };
+
+        myChart.setOption(options);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

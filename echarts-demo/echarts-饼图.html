@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Echarts--饼图</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <script src="echarts.min.js"></script>
+    <style>
+
+    </style>
+    <script>
+
+    </script>
+</head>
+<body>
+    <!--
+        =======访问来源=======
+        直接访问	    SEM推广	    SEO	    博客	    其他
+        359人		217人		96人	    3人	    19人
+    -->
+    <div id="div1" style="width:800px; height:600px;"></div>
+    <script>
+        var oDiv=document.querySelector('#div1');
+        let myChart=echarts.init(oDiv);
+
+        let options={ //配置项
+            title:{
+                text:'访问来源' //标题
+            },
+            legend:{
+                data:['直接访问','SEM推广','SEO','博客','其他']  //图例
+            },
+            tooltip:{},  //鼠标提示
+            series:[{  //数据
+                name:'访问来源',
+                type:'pie',
+                radius:['50%','70%'],
+                data:[
+                    {value:359, name:'直接访问'},
+                    {value:217, name:'SEM推广'},
+                    {value:98, name:'SEO'},
+                    {value:10, name:'博客'},
+                    {value:20, name:'其他'}
+                ]
+            }]
+        };
+
+        myChart.setOption(options);
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
