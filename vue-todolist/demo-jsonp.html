@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue-jsonp</title>
+	<script src="bower_components/vue/dist/vue.min.js"></script>
+	<script src="bower_components/vue-resource/dist/vue-resource.min.js"></script>
+	<script>
+		/*注意视频录制的时候，用的vue-resource是0.几的版本
+		  现在最新的是1.几，jsonp的用法变了，看以下demo
+		*/
+		window.onload=function(){
+			new Vue({
+				el:'#app',
+				data:{
+
+				},
+				methods:{
+					get(){
+						this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+							params:{
+								wd:'a'
+							},
+							jsonp:'cb'
+						}).then(res=>{
+							console.log(res.body);
+						})
+					}
+				}
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="app">
+		<input type="button" value="获取百度数据" @click="get" />
+	</div>
+</body>
+</html>
