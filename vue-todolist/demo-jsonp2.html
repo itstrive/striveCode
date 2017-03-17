@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>vue-jsonp</title>
+	<script src="bower_components/vue/dist/vue.min.js"></script>
+	<script src="bower_components/vue-resource/dist/vue-resource.min.js"></script>
+	<script>
+		/*
+			可以用Promise.all([]) 来管理一个页面多个接口
+		*/
+		window.onload=function(){
+			new Vue({
+				el:'#app',
+				data:{
+
+				},
+				methods:{
+					get(){
+						let p=Promise.all([this.$http.jsonp('https://sp0.baidu.com/5a1Fazu8AA54nxGko9WTAnF6hhy/su',{
+							params:{
+								wd:'a'
+							},
+							jsonp:'cb'
+						}),this.$http.jsonp('https://sug.so.360.cn/suggest',{
+							params:{
+								word:'b'
+							},
+							jsonp:'callback'
+						})]);
+
+						p.then(res=>{
+							let [baidu,haosou]=res;
+							console.log(baidu.body);
+							console.log(haosou.body);
+						})
+					}
+				}
+			});
+		};
+	</script>
+</head>
+<body>
+	<div id="app">
+		<input type="button" value="获取百度数据" @click="get" />
+	</div>
+</body>
+</html>
