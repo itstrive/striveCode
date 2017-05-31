@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>EventSource-demo</title>
+</head>
+<body>
+	<button id="btn1">开始与服务器通信</button>
+	<button id="btn2">关闭</button>
+	<ul id="ul1">
+		
+	</ul>
+	<script>
+		var oUl=document.getElementById('ul1');
+		var oBtn=document.getElementById('btn1');
+		var oBtn2=document.getElementById('btn2');
+		var eventSource;
+		oBtn.onclick=function(){
+			if("EventSource" in window){
+				eventSource=new EventSource('http://localhost:8088/stream');
+
+				eventSource.addEventListener('connecttime',function(event){
+					console.log(event.data);
+				},false);
+
+				eventSource.onopen=function(){
+					console.log('建立连接成功');
+					eventSource.onmessage=function(event){
+						//console.log(event.data);
+						var oLi=document.createElement('li');
+						oLi.innerHTML=event.data;
+						oUl.insertBefore(oLi,oUl.childNodes[0]);
+					};
+				};
+
+				eventSource.onerror=function(){
+					console.log('发生错误了,中断连接');
+				};
+			}else{
+				alert('不支持EventSource');
+			}
+		};
+		oBtn2.onclick=function(){
+			
+			eventSource.close();
+		};
+	</script>
+</body>
+</html>
