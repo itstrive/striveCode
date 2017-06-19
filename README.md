@@ -1,8 +1,9 @@
+
 striveCode
 ==========
 
 
-phone_slider is a phone tab by css3
+phone_slider is a phone tab by css3 ​:smile:​ ​:sunflower:​
 手机端的一个无缝轮播图！只为存个档案！
 
 ==============================
