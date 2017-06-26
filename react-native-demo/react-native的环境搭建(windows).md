@@ -58,13 +58,13 @@
 
    - 配置ANDROID_HOME (注意你的android SDK的安装盘符)
 
-     ![nnnnnnnnnnnnn](C:\Users\strive\Desktop\nnnnnnnnnnnnn.png)
+     ![nnnnnnnnnnnnn](article-img/1.png)
 
    - 然后在path中添加两个
 
      把Android SDK的**tools**和**platform-tools**目录添加到`PATH`变量中
 
-     ![mmmmmmmmmmm](C:\Users\strive\Desktop\mmmmmmmmmmm.png)
+     ![mmmmmmmmmmm](article-img/2.png)
 
 5. 安装git、Genymotion
 
