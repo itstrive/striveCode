@@ -1,0 +1,1 @@
+document.write('welcome ES2016')
