@@ -12,7 +12,6 @@
 
 3. [带header参数设置的](demo3.md)
 
-4. [DrawerNavigator](demo4.md)
+4. [DrawerNavigator](demo4.md)​
 
-5. ​
 

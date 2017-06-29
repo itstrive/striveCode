@@ -21,3 +21,49 @@
    具体操作：删除node-modules文件夹，修改pakage.json文件，然后执行npm install
 
    注意：react版本要和react-native版本搭配，上面版本只换一个也会出错
+
+2. IOS平台下引入图片的问题
+
+   ios9之上默认, 图片地址需要是 https的地址,要不然不显示出来
+
+   解决:
+
+   > 用xcode打开项目
+   >
+   > 比如项目名称叫 helloReact
+   >
+   > helloReact -> info.plist -> App Transport Security Settings  -> 新增
+   >
+   > Allow Arbitrasy loads 设置为 YES， 然后重启项目即可
+
+3. 如果你手贱，移动了xcode的路径
+
+   如果移动了xcode，那么路径变了，
+
+   那么  react-native run-ios 就会挂掉
+
+   需要:
+
+   ```
+   xcode-select --switch your path/Xcode.app
+   ```
+
+4. ListView组件相关:
+
+   - 去除上方空白
+
+     ```jsx
+     <ListView
+     	automaticallyAdjustContentInsets={false}   //设为false即可
+     />
+     ```
+
+   - 隐藏滚动条
+
+     ```jsx
+     <ListView
+     	showVerticalScrollIndicator={false}
+     />
+     ```
+
+     ​
