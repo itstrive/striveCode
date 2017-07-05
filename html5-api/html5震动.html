@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+</head>
+<body>
+	<button id="btn1">震动</button>
+	<script>
+		/*
+		*	window.navigator.vibrate(500); //震动500毫秒
+		*	window.navigator.vibrate([500,1000,500]); //间隔时间 震动500ms，间隔1s，再震动500ms
+		* 	window.navigator.vibrate(0)  // 取消震动
+		* 	参考文档: https://developer.mozilla.org/en-US/docs/Web/API/Vibration_API
+		 */
+		if(window.navigator.vibrate){
+			var oBtn=document.querySelector('#btn1');
+
+			oBtn.onclick=function(){
+				//window.navigator.vibrate(500); //震动500毫秒
+				window.navigator.vibrate([500,1000,500]); //震动500ms，间隔1s，再震动500ms
+			};
+		}else{
+			alert('设备不支持震动');
+		}
+	</script>
+</body>
+</html>

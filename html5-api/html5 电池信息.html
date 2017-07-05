@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0" />
+	<style>
+		#box{
+			width: calc(100% - 2px);
+			height:300px;
+			box-sizing: border-box;
+			color: #fff;
+			background: #282828;
+			line-height: 1.5;
+			padding: 10px;
+		}
+	</style>
+</head>
+<body>
+	<div id="box"></div>
+	<script>
+		/*
+		*	参考文档: https://developer.mozilla.org/zh-CN/docs/Web/API/Battery_Status_API
+		 */
+		var oBox=document.querySelector('#box');
+		navigator.getBattery().then(function(battery) {
+			oBox.innerHTML='是否充电:'+battery.charging+'<br />'+
+							'电量:'+battery.level*100 +'%'+'<br />'+
+							'充电时间:'+battery.chargingTime+'<br />'+
+							'放电时间:'+battery.dischargingTime;
+
+		  battery.addEventListener('chargingchange', function() {  //当接上或者断掉电源的时候
+		    oBox.innerHTML='是否充电:'+battery.charging+'<br />'+
+							'电量:'+battery.level*100 +'%'+'<br />'+
+							'充电时间:'+battery.chargingTime+'<br />'+
+							'放电时间:'+battery.dischargingTime;
+		  });
+
+		  battery.addEventListener('levelchange', function() {  //电量发生变化的时候
+		    oBox.innerHTML='是否充电:'+battery.charging+'<br />'+
+							'电量:'+battery.level*100 +'%'+'<br />'+
+							'充电时间:'+battery.chargingTime+'<br />'+
+							'放电时间:'+battery.dischargingTime;
+		  });
+
+		  battery.addEventListener('chargingtimechange', function() { 
+		    oBox.innerHTML='是否充电:'+battery.charging+'<br />'+
+							'电量:'+battery.level*100 +'%'+'<br />'+
+							'充电时间:'+battery.chargingTime+'<br />'+
+							'放电时间:'+battery.dischargingTime;
+		  });
+
+		  battery.addEventListener('dischargingtimechange', function() {
+		    oBox.innerHTML='是否充电:'+battery.charging+'<br />'+
+							'电量:'+battery.level*100 +'%'+'<br />'+
+							'充电时间:'+battery.chargingTime+'<br />'+
+							'放电时间:'+battery.dischargingTime;
+		  });
+
+		});
+	</script>
+</body>
+</html>
