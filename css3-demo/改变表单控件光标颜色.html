@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>光标颜色的改变</title>
+	<style>
+		input,
+		textarea,
+		[contenteditable]{
+			color: red;
+			text-shadow: 0 0 0 #000;
+			-webkit-text-fill-color:transparent;
+		}
+
+		@supports(caret-color:red){  /*支持 caret-color 覆盖上面的*/
+			input,
+			textarea,
+			[contenteditable]{
+				color:#000;
+				caret-color:red;
+			}
+		}
+	</style>
+</head>
+<body>
+	<input type="text" placeholder="请输入文字测试">
+	
+	<br>
+
+	<textarea name="" id="" cols="30" rows="10"></textarea>
+	<br>
+
+	<div contenteditable style="border:1px solid #999; border-radius: 5px;"></div>
+</body>
+</html>
