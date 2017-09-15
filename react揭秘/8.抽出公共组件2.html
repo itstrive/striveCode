@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React揭秘-8</title>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		/**
+		 * str2DOM
+		 */
+		const str2DOM=(str)=>{
+			const div=document.createElement('div');
+			div.innerHTML=str;
+			return div;
+		}
+		/**
+		 *
+		 * mount 用来把组件的DOM插入到页面上
+		 */
+		const mount=(component, wrapper)=>{
+			wrapper.appendChild(component._renderDOM());
+			component.onStateChange=(oldEl,newEl)=>{
+				wrapper.insertBefore(newEl,oldEl);
+				wrapper.removeChild(oldEl);
+			};
+		}
+
+		/**
+		 *
+		 * 父组件，公共的
+		 */
+		class Component{
+			constructor(props={}){
+				this.props=props;
+			}
+			setState(state){
+				const oldEl=this.el;
+				this.state=state;
+				this.el=this._renderDOM();
+				if(this.onStateChange)
+					this.onStateChange(oldEl,this.el);
+			}
+			_renderDOM(){
+				this.el=str2DOM(this.render());
+				if(this.onClick){
+					this.el.addEventListener('click',this.onClick.bind(this),false);
+				}
+				return this.el;
+			}
+		}
+
+		class VoteButton extends Component{
+			constructor(props){
+				super(props);
+				this.state={
+					bVote:false
+				};
+			}
+
+			onClick(){
+				this.setState({
+					bVote:!this.state.bVote
+				});
+			}
+
+			render(){
+				return `<div class="vote-box">
+					<input style="background:${this.props.bgColor}" class="button" type="button" value="${this.state.bVote?'取消':'投票'}" />
+				</div>`
+			}
+		}
+		
+		mount(new VoteButton({bgColor:'red'}), document.querySelector('.box'));
+		
+
+	</script>
+</body>
+</html>

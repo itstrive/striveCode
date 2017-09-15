@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React揭秘-2</title>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		class VoteButton{
+			render(){
+				return `<div class="vote-box">
+					<input class="button" type="button" value="投票" />
+				</div>`
+			}
+		}
+
+		const oBox=document.querySelector('.box');
+
+		const button1=new VoteButton();
+		oBox.innerHTML=button1.render();
+
+		const button2=new VoteButton();
+		oBox.innerHTML+=button2.render();
+
+		// 问题: 字符串没法添加事件，想添加事件，需要把字符串变成 DOM元素
+	</script>
+</body>
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React揭秘-6</title>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		/**
+		 * str2DOM
+		 */
+		const str2DOM=(str)=>{
+			const div=document.createElement('div');
+			div.innerHTML=str;
+			return div;
+		}
+
+		class VoteButton{
+			constructor(){
+				this.state={
+					bVote:false
+				};
+			}
+
+			setState(state){
+				const oldEl=this.el;
+				this.state=state;
+				this.el=this.render();
+				if(this.onStateChange)
+					this.onStateChange(oldEl, this.el);
+			}
+
+			fnChangeVal(){
+				this.setState({
+					bVote:!this.state.bVote
+				});
+			}
+
+			render(){
+				this.el=str2DOM(`<div class="vote-box">
+					<input class="button" type="button" value="${this.state.bVote?'取消':'投票'}" />
+				</div>`);
+				this.el.addEventListener('click',this.fnChangeVal.bind(this),false);
+				return this.el;
+			}
+		}
+
+		const oBox=document.querySelector('.box');
+
+		const button1=new VoteButton();
+		oBox.appendChild(button1.render());
+
+		button1.onStateChange=(oldEl,newEl)=>{
+			oBox.insertBefore(newEl,oldEl);
+			oBox.removeChild(oldEl);
+		};
+
+		// 当然，这种做法很暴力，不过不用担心，rect里面用的 Virtual-DOM,这个咱暂时不涉及。
+	</script>
+</body>
+</html>

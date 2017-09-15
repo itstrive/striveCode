@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React揭秘-5</title>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		/**
+		 * str2DOM
+		 */
+		const str2DOM=(str)=>{
+			const div=document.createElement('div');
+			div.innerHTML=str;
+			return div;
+		}
+
+		class VoteButton{
+			constructor(){
+				this.state={
+					bVote:false
+				};
+			}
+
+			setState(state){
+				this.state=state;
+				this.el=this.render();
+			}
+
+			fnChangeVal(){
+				this.setState({
+					bVote:!this.state.bVote
+				});
+			}
+
+			render(){
+				this.el=str2DOM(`<div class="vote-box">
+					<input class="button" type="button" value="${this.state.bVote?'取消':'投票'}" />
+				</div>`);
+				this.el.addEventListener('click',this.fnChangeVal.bind(this),false);
+				return this.el;
+			}
+		}
+
+		const oBox=document.querySelector('.box');
+
+		const button1=new VoteButton();
+		oBox.appendChild(button1.render());
+
+		const button2=new VoteButton();
+		oBox.appendChild(button2.render());
+
+		//现在点击不会有任何改变，因为DOM改变必须重新插入到页面中
+	</script>
+</body>
+</html>

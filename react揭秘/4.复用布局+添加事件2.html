@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React揭秘-4</title>
+</head>
+<body>
+	<div class="box"></div>
+	<script>
+		/**
+		 * str2DOM
+		 */
+		const str2DOM=(str)=>{
+			const div=document.createElement('div');
+			div.innerHTML=str;
+			return div;
+		}
+
+		class VoteButton{
+			constructor(){
+				this.state={
+					bVote:false
+				};
+			}
+
+			fnChangeVal(){
+				const button=this.el.querySelector('.button');
+				this.state.bVote=!this.state.bVote;
+				button.value=this.state.bVote?'取消':'投票';
+			}
+
+			render(){
+				this.el=str2DOM(`<div class="vote-box">
+					<input class="button" type="button" value="投票" />
+				</div>`);
+				this.el.addEventListener('click',this.fnChangeVal.bind(this),false);
+				return this.el;
+			}
+		}
+
+		const oBox=document.querySelector('.box');
+
+		const button1=new VoteButton();
+		oBox.appendChild(button1.render());
+
+		const button2=new VoteButton();
+		oBox.appendChild(button2.render());
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>React揭秘-1</title>
+</head>
+<body>
+	<div class="vote-box">
+		<input class="button" type="button" value="投票" />
+	</div>
+
+	<script>
+		const oVoteBox=document.querySelector('.vote-box');
+		const oBtn=oVoteBox.querySelector('.button');
+		let bVote=false;
+		oBtn.addEventListener('click',()=>{
+			bVote=!bVote;
+			if(bVote){
+				oBtn.value='取消';
+			}else{
+				oBtn.value='投票';
+			}
+		},false)
+	</script>
+</body>
+</html>
