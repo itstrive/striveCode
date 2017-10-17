@@ -66,7 +66,7 @@ Inline-level elements are those elements of the source document that do not form
 
 > 在应用程序和文档的主体部分中使用的大部分元素都被分类为**流式元素**。
 
-``` html
+``` tiki wiki
 a, abbr, address, area(如果它是map的后裔), article, aside, audio, b, bdi, bdo, blockquote, br , button, canvas, cite, code, command, datalist, del, details, dfn, div, dl,em,embed, fieldset, figure, footer, form, h1,h2,h3,h4,h5,h6, header, hgroup, hr, i , iframe, img, input, ins, kbd, keygen, label, map, mark, math, menu, meter, nav ,noscript, object, ol , output, p, pre, progress, q, ruby ,s, samp, script, section, select, small, span, strong, style(如果该元素设置了scoped属性), sub, sup ,svg, table, textarea, time, u, ul , var ,video, wbr, text
 ```
 
@@ -164,11 +164,11 @@ base, command, link, meta, noscript, style, title
 
 <div>元素允许的子元素是流式元素，流式元素基本涵括了页面中的大部分元素，所以我们在用<div>时可以不用担心嵌套错误的问题。
 
-但对于<h1>~<h6>元素，它们允许的子元素为段落式元素，而段落式元素并不包含诸 如<div>、<p>、<ul><ol>之类的元素，这就说明按照html5的规范，是不允许在标题元 素内部嵌入<div>、<p>、<ul><ol>之类的元素。
+但对于`<h1>~<h6>`元素，它们允许的子元素为段落式元素，而段落式元素并不包含诸 如`<div>、<p>、<ul><ol>`之类的元素，这就说明按照html5的规范，是不允许在标题元 素内部嵌入`<div>、<p>、<ul><ol>`之类的元素。
 
 ---
 
-##### 举个例子3: <a> 元素
+##### 举个例子3: `<a>` 元素
 
 - Categories:
   - Flow content.
@@ -188,7 +188,7 @@ base, command, link, meta, noscript, style, title
 
 
 
-**这样看<a>元素还是挺有意思的，允许的子元素要看它的父元素所能包含的子元素。**
+**这样看`<a>`元素还是挺有意思的，允许的子元素要看它的父元素所能包含的子元素。**
 
 ---
 
@@ -210,7 +210,7 @@ base, command, link, meta, noscript, style, title
 </ul>
 ```
 
-这时<a>的父元素为<h4>，对于<h1>~<h6>的标题元素上面已经提过，允许的子元素是 段落式元素，那么此时对于<a>允许的子元素即为段落式元素，而段落式元素中是不包含<div>元素的，所以**FCAEBOOK这样的嵌套方法是错误的！**
+这时`<a>`的父元素为`<h4>`，对于`<h1>~<h6>`的标题元素上面已经提过，允许的子元素是 段落式元素，那么此时对于`<a>`允许的子元素即为段落式元素，而段落式元素中是不包含`<div>`元素的，所以**FCAEBOOK这样的嵌套方法是错误的！**
 
 让我们来把代码做一下修改：
 
@@ -228,13 +228,13 @@ base, command, link, meta, noscript, style, title
 </ul>
 ```
 
-这时<a>的父元素为<div>，而<div>元素允许的子元素是流式元素，流式元素中包含<div>元素，所以这样的情形下在<a>里面嵌套<div>就是正确的做法！
+这时`<a>`的父元素为`<div>`，而`<div>`元素允许的子元素是流式元素，流式元素中包含`<div>`元素，所以这样的情形下在`<a>`里面嵌套`<div>`就是正确的做法！
 
 ---
 
 #### 嵌套错误可能引起的问题
 
-上面讲了HTML5对元素新的分类方式和以<h1>~<h6>、<div>、<a>元素举例讲述 了各自的嵌套规则，但FACEBOOK即使不按照标准去嵌套也不会有大的错误问题，这就给我们带来了一个思考：嵌套错误到底会不会有问题？
+上面讲了HTML5对元素新的分类方式和以`<h1>~<h6>、<div>、<a>`元素举例讲述 了各自的嵌套规则，但FACEBOOK即使不按照标准去嵌套也不会有大的错误问题，这就给我们带来了一个思考：嵌套错误到底会不会有问题？
 
 ###### 举个栗子1：开始与结束标签嵌套错误
 
@@ -306,14 +306,14 @@ base, command, link, meta, noscript, style, title
 通过上述栗子，我们总结如下：
 
 - 元素开始与结束标签嵌套错误，页面可以在大部分浏览器被正常解析，IE9会出现解析错误
-- 在<p>元素内嵌入<div>等元素造成所有浏览器的解析错误
-- 在<h1>~<h6>元素内嵌入<div>等元素所有浏览器可以解析正常
-- 在<a>元素内嵌入<a>元素会导致所有浏览器的解析错误
-- 在列表元素<li><dt><dd>等插入非列表兄弟元素会导致IE6IE7的解析错误
+- 在`<p>`元素内嵌入`<div>`等元素造成所有浏览器的解析错误
+- 在`<h1>~<h6>`元素内嵌入`<div>`等元素所有浏览器可以解析正常
+- 在`<a>`元素内嵌入`<a>`元素会导致所有浏览器的解析错误
+- 在列表元素`<li><dt><dd>`等插入非列表兄弟元素会导致IE6IE7的解析错误
 
 其实，这里说解析错误并不是很合理，应该是说浏览器解析出来的结果和我们期望的结果不一致，但任何的嵌套错误都不会导致页面呈现有很大的出错。
 
-我们知道[JS](http://caibaojian.com/javascript/)代码如果写的有语法错误，浏览器的JS解释器就会拒绝执行并且报错，而浏览器在遇到不符合语法规定的[HTML](http://caibaojian.com/t/html)代码时则会千方百计将其呈现出来。
+我们知道JS代码如果写的有语法错误，浏览器的JS解释器就会拒绝执行并且报错，而浏览器在遇到不符合语法规定的HTML代码时则会千方百计将其呈现出来。
 
 ---
 
@@ -323,8 +323,8 @@ base, command, link, meta, noscript, style, title
 
 **严格嵌套约束规则：**
 
-- a元素里不可以嵌套交互式元素(<a>、<button>、<select>等)
-- <p>里面不可以嵌 套<div>、<h1>~<h6>、<p>、<ul>/<ol> /<li>、<dl>/<dt>/<dd>、<form>等
+- a元素里不可以嵌套交互式元素(`<a>、<button>、<select>`等)
+- `<p>`里面不可以嵌 套`<div>、<h1>~<h6>、<p>、<ul>/<ol> /<li>、<dl>/<dt>/<dd>、<form>`等
 
 **语义嵌套约束：**
 
