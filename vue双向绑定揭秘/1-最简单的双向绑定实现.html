@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" id="a">
+		<div id="b"></div>
+	</div>
+
+	<script>
+		/*当然可以直接用 oninput实现，这里用 defineProperty尝试*/
+		var obj={};
+
+		Object.defineProperty(obj,'name',{
+			set:function(newVal){
+				document.getElementById('a').value=newVal;
+				document.getElementById('b').innerHTML=newVal;
+			}
+		});
+
+		document.addEventListener('keyup',function(e){
+			obj.name=e.target.value;
+		},false);
+	</script>
+</body>
+</html>

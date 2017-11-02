@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="hi.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="text">
+		<h3 @click="change">{{text}}</h3>
+	</div>
+
+	<script>
+		var vm=new Vue({
+			el:'#app',
+			data:{
+				text:'Strive'
+			},
+			methods:{
+				change(){
+					this.text=this.text.split('').reverse().join('');
+				}
+			}
+		});
+	</script>
+</body>
+</html>

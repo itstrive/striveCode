@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<div id="app">
+		<input type="text" id="a">
+		<span id="b"></span>
+	</div>
+
+	<script>
+		/*先对 DOM进行编译, 把dom节点扔到 Fragment里面, 用 fragment文档碎片中转下*/
+		function nodeToFragment(node){
+			var frag=document.createDocumentFragment();
+			var child;
+			while(child=node.firstChild)
+				frag.appendChild(child);
+
+			return frag;
+		}
+
+		var dom=nodeToFragment(document.getElementById('app'));
+		console.log(dom);
+
+		document.getElementById('app').appendChild(dom);
+	</script>
+</body>
+</html>
