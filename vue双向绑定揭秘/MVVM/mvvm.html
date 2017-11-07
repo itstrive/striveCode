@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<script src="observer.js"></script>
+	<script src="watcher.js"></script>
+	<script src="compile.js"></script>
+	<script src="mvvm.js"></script>
+</head>
+<body>
+	<div id="app">
+		<input type="text" v-model="text">
+		<h3 @click="change">{{text}}</h3>
+		{{text}}
+	</div>
+
+	<script>
+		let vm=new Vue({
+			el:'#app',
+			data:{
+				text:'welcome vue core'
+			},
+			methods:{
+				change:function(){
+					this.text='aaa';
+				}
+			}
+		});
+	</script>
+</body>
+</html>
