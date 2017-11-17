@@ -1,0 +1,10 @@
+doctype html
+html
+    head
+        title Jade Page
+    body
+        h3 #{title}
+
+        ol
+            each val,index in arr
+                li= index+', '+val
