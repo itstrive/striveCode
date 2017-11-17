@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.upload-box {
+			width: 200px;
+			height: 200px;
+			float: left;
+		}
+		.upload-btn {
+			padding: 4px 10px;
+			height: 20px;
+			line-height: 20px;
+			position: relative;
+			cursor: pointer;
+			color: #888;
+			background: #fafafa;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+			overflow: hidden;
+			display: inline-block;
+			*display: inline;
+			*zoom: 1
+		}
+
+		.upload-btn  input {
+			position: absolute;
+			font-size: 100px;
+			right: 0;
+			top: 0;
+			opacity: 0;
+			filter: alpha(opacity=0);
+			cursor: pointer
+		}
+
+		.upload-btn:hover {
+			color: #444;
+			background: #eee;
+			border-color: #ccc;
+			text-decoration: none
+		}
+		.preview-img{
+			border: 1px dashed salmon;
+			width:200px;
+			height:200px;
+			text-align: center;
+		}
+		.preview-img img{
+			display: block;
+			width: 100%;
+		}
+		#text-info{
+			font-size: 14px;
+			font-weight: normal;
+			color: #f60;
+		}
+	</style>
+</head>
+
+<body>
+	<div class="upload-box">
+		<a href="javascript:;" class="upload-btn">
+			<input type="file" name="file" id="f1">点击这里上传文件
+		</a>
+		<div class="preview-img">
+			<img src="" id="img">
+			<strong id="text-info"></strong>
+		</div>
+	</div>
+	<script>
+		// 图片预览
+		var oFile = document.querySelector('#f1');
+		var oImg = document.querySelector('#img');
+		oFile.onchange = function (ev) {
+			var file = ev.target.files[0] || ev.dataTransfer.files[0];
+			if (file) {
+				let reader = new FileReader();
+
+				reader.onload = function () {
+					oImg.src = this.result;
+				};
+
+				reader.readAsDataURL(file);
+			}
+
+			//异步上传图片
+			//准备 FormData
+			let formData = new FormData();
+			formData.append('file', oFile.files[0]);
+
+			let xhr = new XMLHttpRequest();
+			xhr.open('POST', '/upload', true);
+			//xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+			xhr.send(formData);
+			xhr.onload = function () {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					document.getElementById('text-info').innerHTML=xhr.responseText;
+				}
+			}
+		};
+	</script>
+</body>
+
+</html>
