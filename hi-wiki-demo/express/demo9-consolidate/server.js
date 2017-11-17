@@ -21,7 +21,7 @@ app.set('views','views');
 app.set('view engine', 'swig');
 
 app.get('/',(req,res)=>{
-	res.render('index.jade',{title:'Strive',arr:['apple','banana','orange','tomato']});
+	res.render('index',{title:'Strive',arr:['apple','banana','orange','tomato']});
 });
 
 app.use(express.static('www'));

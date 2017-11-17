@@ -9,9 +9,9 @@
 <body>
     <h3>{{title}}</h3>
     <ul>
-        <% for value in arr%>
+        {% for value in arr %}
         <li>{{value}}</li>
-        <% endfor%>
+        {% endfor%}
     </ul>
 </body>
 </html>
