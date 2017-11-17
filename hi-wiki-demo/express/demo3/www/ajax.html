@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+
+<body>
+	<button id="btn1">按钮</button>
+	<script>
+		var oBtn = document.querySelector('#btn1');
+
+		oBtn.onclick = function () {
+			let xhr = new XMLHttpRequest();
+			xhr.open('GET', '/user?username=123&password=one', true);
+			xhr.send();
+			xhr.onload = function () {
+				if (xhr.readyState == 4 && xhr.status == 200) {
+					let json=JSON.stringify(xhr.responseText);
+					alert(json);
+				}
+			}
+		};
+	</script>
+</body>
+
+</html>
