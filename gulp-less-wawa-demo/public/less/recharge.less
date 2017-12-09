@@ -1,0 +1,89 @@
+@import 'reset.css';
+@import 'header.less';
+
+html,body{
+    height:100%;
+    overflow: hidden;
+    background:#f6f6f6;
+}
+.account-balance{
+    width:100%;
+    background:#fff;
+    margin-top:16px;
+    text-align: center;
+    padding:20px 0;
+    box-sizing: border-box;
+
+    .account-text{
+        font-size:28px;
+        color:#333;
+    }
+    .balance-text{
+        font-size: 60px;
+        color: #ef3c03;
+    }
+    .text{
+        font-size: 28px;
+    }
+}
+
+.recharge-list{
+    margin-top:32px;
+    background:#fff;
+    box-sizing: border-box;
+    padding:24px 48px;
+
+    .recharge-item-box{
+        display: flex;
+        flex-wrap: wrap;
+        margin-left:-24px;
+    }
+    .recharge-item{
+        margin-left:24px;
+        width:202px;
+        background:#fff;
+        margin-top:18px;
+        height:118px;
+        box-sizing: border-box;
+        border-radius: 5px;
+        border:2px solid #ef3c03;
+        text-align: center;
+
+        .amount-text{
+            margin-top:18px;
+            font-size: 30px;
+            color:#ef3d03;
+        }
+        .price-text{
+            margin-top:5px;
+            font-size: 24px;
+            color:#fa6503;
+        }
+    }
+}
+
+.payment-wrap{
+    margin-top:32px;
+    height:120px;
+    background:#fff;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+
+    .alipay-btn{
+        display: block;
+        text-indent: -9999px;
+        width:188px;
+        height:50px;
+        background:url(../images/alipay-bg.png) no-repeat;
+        background-size:contain;
+    }
+    .wxpay-btn{
+        display: block;
+        text-indent: -9999px;
+        width:188px;
+        height:50px;
+        background:url(../images/wxpay-bg.png) no-repeat;
+        background-size:contain;
+    }
+}

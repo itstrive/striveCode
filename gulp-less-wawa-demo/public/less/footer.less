@@ -1,0 +1,42 @@
+@import 'variable.less';
+.footer{
+    width:100%;
+    height:100px;
+    position: fixed;
+    left:0;
+    bottom:0;
+    box-sizing: border-box;
+    border-top:1px solid #dedede;
+    background:#fff;
+
+    .footer-nav{
+        height:100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        a{
+            flex: 1;
+            color:@theme-color;
+            font-size: @fz22;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .icon{
+            display:block;
+            width:40px;
+            height:40px;
+            margin-bottom:7px;
+        }
+        .icon-home{
+            background:url(../images/icon-home.png) no-repeat;
+            background-size:cover;
+        }
+        .icon-my{
+            background:url(../images/icon-my.png) no-repeat;
+            background-size:cover;
+        }
+    }
+}

@@ -1,0 +1,231 @@
+@import 'reset.css';
+@import 'header.less';
+
+html,body{
+    height:100%;
+    overflow: hidden;
+}
+
+.room-wrap{
+    width:100%;
+    height:100%;
+    box-sizing: border-box;
+    padding: 25px 22px;
+    background: url(../images/room-bg.jpg) no-repeat center top;
+    background-size: 100%;
+
+    .room-view-box{
+        height:70vh;
+        box-sizing: border-box;
+        position: relative;
+        border-radius: 25px;
+        box-shadow: inset 0 0 15px #ccc;
+
+        .player-info{
+            position: absolute;
+            top:25px;
+            width:100%;
+            display: flex;
+            justify-content: space-between;
+
+            /* 用户头像 */
+            .user-info{
+                width:242px;
+                height:84px;
+                background: rgba(0,0,0,0.4);
+                border-radius: 25px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+
+                .user-face{
+                    width:60px;
+                    height:60px;
+                    margin-left:10px;
+                    img{
+                        display: block;
+                        width:100%;
+                    }
+                }
+                .user-info-details{
+                    flex: 1;
+                    margin-left:10px;
+                }
+                .user-name{
+                    display: block;
+                    font-size: 28px;
+                    color: #f96203;
+                    font-weight: normal;
+                }
+                .game-status{
+                    display: block;
+                    font-size: 24px;
+                    color: #fff;
+                }
+            }
+            
+            /* 观看人数 */
+            .watch-info{
+                display: flex;
+                align-items: center;
+                position:absolute;
+                right:0;
+                top:10px;
+            }
+            .watch-ranking-list{
+                li{
+                    width:60px;
+                    height:60px;
+                    float:left;
+                    margin-left:14px;
+
+                    img{
+                        display:block;
+                        width:100%;
+                    }
+                }
+            }
+            .watch-more{
+                width:145px;
+                height:60px;
+                text-align: center;
+                line-height: 60px;
+                border-radius: 30px;
+                background: rgba(0,0,0,0.4);
+                font-size: 26px;
+                color: #fff;
+                margin-left:14px;
+            }
+        }
+    }
+
+    .operation-wrap{
+        width:714px;
+        height:244px;
+        margin-top:20px;
+        background: url(../images/room-bg2.png) no-repeat;
+        background-size: contain;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .direction-btn-wrap{
+        width:208px;
+        height:208px;
+        box-sizing: border-box;
+        padding:8px;
+        margin-left:50px;
+        border-radius: 50%;
+        position: relative;
+        background:-webkit-radial-gradient(center 70%,#b45a37,#d4855f,#f9b68d);
+    }
+    .play-go{
+        width:134px;
+        height:123px;
+        margin-right:55px;
+        text-indent: -9999px;
+        background: url(../images/go.png) no-repeat;
+        background-size: contain;
+    }
+    .direction-btn-core{
+        width:56px;
+        height:56px;
+        background: url('../images/direction-core-bg.png') no-repeat;
+        background-size: contain;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+    .btn-dir-up{
+        display: block;
+        width:34px;
+        text-indent: -99999px;
+        height:23px;
+        background: url(../images/btn-icon.png) no-repeat;
+        background-size: contain;
+        position: absolute;
+        left:50%;
+        transform:translateX(-50%);
+    }
+    .btn-dir-left{
+        display: block;
+        width:34px;
+        text-indent: -99999px;
+        height:23px;
+        background: url(../images/btn-icon.png) no-repeat;
+        background-size: contain;
+        position: absolute;
+        left:0;
+        top:50%;
+        transform:translateY(-50%) rotate(-90deg);
+    }
+    .btn-dir-bottom{
+        display: block;
+        width:34px;
+        text-indent: -99999px;
+        height:23px;
+        background: url(../images/btn-icon.png) no-repeat;
+        background-size: contain;
+        position: absolute;
+        left:50%;
+        bottom:8px;
+        transform:translateX(-50%) rotate(-180deg);
+    }
+    .btn-dir-right{
+        display: block;
+        width:34px;
+        text-indent: -99999px;
+        height:23px;
+        background: url(../images/btn-icon.png) no-repeat;
+        background-size: contain;
+        position: absolute;
+        right:8px;
+        top:50%;
+        transform:translateY(-50%) rotate(90deg);
+    }
+}
+
+/* 游客部分 */
+.tourist-content{
+    width:100%;
+    height:100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+.will-play-btn{
+    display: block;
+    text-indent: -99999px;
+    width:277px;
+    height:95px;
+    background:url(../images/will-play.png) no-repeat;
+    background-size: contain;
+}
+.recharge-info{
+    position: absolute;
+    top:18px;
+    right:20px;
+    height:100%;
+    .recharge-text{
+        font-size: 24px;
+        color: #fff;
+        font-weight: bold;
+        line-height:36px;
+    }
+}
+.eclipse-btn{
+    border:2px solid #ef3d03;
+    display: block;
+    width:110px;
+    height:66px;
+    margin-top:20px;
+    line-height: 66px;
+    text-align: center;
+    font-size: 30px;
+    border-radius: 30px;
+    color: #ef3c03;
+    font-weight: bold;
+    background: linear-gradient(to bottom,#ffe5d3, #ffddb4, #ffd593);
+}

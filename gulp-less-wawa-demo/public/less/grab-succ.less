@@ -1,0 +1,72 @@
+.grab-box{
+    width:480px;
+    height:480px;
+    border-radius: 20px;
+    position: absolute;
+    left:50%;
+    top:50%;
+    transform: translate(-50%, -60%);
+    background: url(../images/grab-succ-bg.png) no-repeat rgba(255,255,255,.6);
+    background-size: contain;
+
+    .grab-title{
+        width:100%;
+        height:82px;
+        line-height:82px;
+        text-align: center;
+        font-weight: bold;
+        font-size: 36px;
+        color:#333333;
+    }
+
+    .grab-img{
+        position: relative;
+        left:50%;
+        transform: translate(-50%,0);
+        width:206px;
+        height:206px;
+        border-radius: 50%;
+        overflow: hidden;
+
+        img{
+            display: block;
+            width:100%;
+        }
+    }
+
+    .grab-info{
+        position: relative;
+        left:50%;
+        transform: translate(-50%,0);
+        width:360px;
+        margin-top:23px;
+        display: flex;
+        justify-content: space-between;
+        .text{
+            font-size: 26px;
+            color:#333333;
+        }
+    }
+
+    .grab-btn-group{
+        position: relative;
+        left:50%;
+        transform: translate(-50%,0);
+
+        width:404px;
+        margin-top:52px;
+
+        display: flex;
+        justify-content: space-between;
+
+        .grab-btn{
+            font-size: 36px;
+        }
+        .grab-btn-gray{
+            color:#666666;
+        }
+        .grab-btn-yellow{
+            color:#eba904;
+        }
+    }
+}

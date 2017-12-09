@@ -1,0 +1,72 @@
+@import 'variable.less';
+@import 'banner.less';
+.wrap{
+    width:100%;
+    background:#ffffff;
+    box-sizing: border-box;
+    padding: 25px 22px;
+    margin-bottom:100px;
+}
+.item-wrap{
+
+    .item{
+        box-sizing: border-box;
+        width:343px;
+        height:424px;
+        float:left;
+        margin-top:24px;
+        border-radius: 8px;
+        position: relative;
+        padding:12px;
+        border:2px solid @theme-color;
+    }
+    .item:nth-child(even){
+        margin-left:18px;
+    }
+    .item a:active{
+        text-decoration: none;
+    }
+    .item-img{
+        width:100%;
+        height:280px;
+        margin-top:20px;
+    }
+    .room-name{
+        font-size: @fz24;
+        color:@theme-color;
+    }
+    .room-info-box{
+        font-size: @fz24;
+        color:@theme-color;
+        margin-top:22px;
+    }
+    .sign-new{
+        position: absolute;
+        left:12px;
+        top:12px;
+        text-indent: -999999px;
+        display: block;
+        width:52px;
+        height:54px;
+        background:url(../images/sign-new.png) no-repeat;
+        background-size:contain;
+    }
+    .icon-status{
+        position: absolute;
+        right:18px;
+        top:18px;
+        width:80px;
+        height:40px;
+        color:#fff;
+        font-size: 20px;
+        text-align: center;
+        line-height: 40px;
+        border-radius: 10px;
+    }
+    .status-yellow{
+        background:#fdb700;
+    }
+    .status-red{
+        background:#f20016;
+    }
+}
