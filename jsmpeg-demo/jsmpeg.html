@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jsmpeg.min.js"></script>
+    <style>
+        #c1{
+            width:300px;
+            height:200px;
+        }
+        #c2{
+            width:200px;
+            height:300px;
+        }
+    </style>
+</head>
+
+<body>
+    <canvas id="c1"></canvas>
+
+    <canvas id="c2"></canvas>
+
+    <script>
+        var oC = document.querySelector('#c1');
+        //wss://h5gw-shaoxing-cucc-1.agoraio.cn:8100/?camera=main&channel=leidi01&appid=324f0da1e2284832a44fee5fcbec44c1
+        new JSMpeg.Player('wss://h5gw-shaoxing-cucc-1.agoraio.cn:8100/?camera=main&channel=leidi01&appid=324f0da1e2284832a44fee5fcbec44c1', { canvas: oC })
+
+
+        var oC2 = document.querySelector('#c2');
+        new JSMpeg.Player('ws://120.78.197.82:8080/new_wawaji_demo/WWJ_ZEGO_STREAM_00d19361f1b8_2', { canvas: oC2 })
+    </script>
+</body>
+
+</html>
