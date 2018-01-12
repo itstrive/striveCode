@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        #div1 {
+            width: 750px;
+            height: 100px;
+            background: red;
+        }
+
+        #div2 {
+            width: 562.5pt;
+            height: 100pt;
+            background: red;
+        }
+    </style>
+    <script src="https://unpkg.com/san@latest/dist/san.dev.js"></script>
+</head>
+
+<body>
+    <div id="app">
+        
+    </div>
+    <script>
+        var MyApp = san.defineComponent({
+            template: '<div>'
+            +'user: <input type="text" placeholder="用户名" value="{= name =}" on-keyup="fnAdd">'
+                +'<ul>'
+                    +'<li s-for="value,index in arr">'
+                        +'<span>{{value}}</span>'
+                        +'<a href="javascript:;" on-click="fnDelete(index)">删除</a>'
+                    +'</li>'
+                +'</ul>'
+            +'</div>',
+
+            initData: function () {
+                return {
+                    name:'',
+                    arr:['apple','banana','orange']
+                };
+            },
+            fnAdd:function(ev){
+                if(ev.keyCode==13){
+                    var name = this.data.get('name');
+                    this.data.push('arr',name);
+                    this.data.set('name','');
+                }
+            },
+            change:function(){
+                this.data.set('name','Strive');
+            },
+            fnDelete:function(n){
+                this.data.splice('arr', [n, 1]);
+            }
+        });
+
+
+        var myApp = new MyApp();
+        myApp.attach(document.getElementById('app'));
+    </script>
+</body>
+
+</html>
