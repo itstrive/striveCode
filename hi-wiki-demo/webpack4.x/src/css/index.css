@@ -1,0 +1,25 @@
+body{
+    background:#f60;
+    color: #fff;
+}
+
+#face{
+    width:150px;
+    height:150px;
+    background: url(../images/404.jpg) no-repeat;
+    background-size: contain;
+    transform: rotate(45deg);
+}
+#abc{
+    width:100px;
+    height:100px;
+}
+#dddd{
+    background: red;
+}
+.aaaaa{
+    background: #ccc;
+    transform: rotate(30deg);
+}
+
+.jd-footer-links li:last-child{width:2.8125rem}.jd-footer-links li:first-child,.jd-footer-links li:nth-child(2){border-right:0.0313rem solid #d7d7d7}.jd-footer-links li:last-child{border-left:0.0313rem solid #d7d7d7}.jd-footer-platforms{height:2.1563rem;width:10rem;margin:0 auto;display:table}.jd-footer-platforms li{display:table-cell}.jd-footer-platforms li a{display:block;width:1.4063rem;margin:0 auto;font-size:0.375rem;color:#848689;text-decoration:none;position:relative}.jd-footer-platforms li.current a{color:#252525}.jd-footer-platforms li a.badge:after{content:"";display:block;width:0.3125rem;height:0.3125rem;position:absolute;top:0.0625rem;right:0.0938rem;background-position:-4.6875rem 0}.jd-footer-platforms li a:before{content:"";display:block;height:1.1875rem;width:1.0313rem;margin:0.2813rem auto 0;background-position:0 -2.1875rem;opacity:.6}.jd-footer-platforms li.current a:before{opacity:1}.jd-footer-platforms li.jd-footer-icon-touchscreen a:before{background-position:-1.25rem -2.1875rem}.jd-footer-platforms li.jd-footer-icon-pc a:before{background-position:-2.5rem -2.1875rem}.jd-footer-platforms li.jd-footer-icon-apps a:before{background-position:-3.75rem -2.1875rem}.jd-footer-copyright{height:1.375rem;line-height:1.375rem;text-align:center;color:#848689;font-size:0.375rem}.tryme{background:rgba(0,0,0,0.8);width:100%;height:1.5625rem}.tryme.onfoot{position:fixed;z-index:10;bottom:0}.tryme div{width:10rem;height:1.5625rem;margin:0 auto;background:url(/images/layout/2015/tryme.png?v=2) no-repeat center center;background-size:10rem 1.5625rem;position:relative}.tryme .later{border:0;display:block;left:0.125rem;top:0.2813rem;width:1rem;height:1rem;position:absolute}.tryme .trynow{border:0;display:block;left:1.25rem;width:8.75rem;height:1.5625rem;position:absolute}.tryme span{display:block;width:4.375rem;margin-left:2.8125rem;padding-top:0.3125rem;color:#fff;font-size:0.375rem;line-height:0.4688rem}
