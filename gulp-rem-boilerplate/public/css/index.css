@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  width: 18.75rem;
+  margin: 0 auto;
+}
+
+#div1 {
+  width: 17.25rem;
+  height: 7.25rem;
+  background: red;
+  margin: 0.5rem auto;
+  border-radius: 0.6rem;
+  transform: rotate(10deg);
+}
+
+.logo-img {
+  width: 4.5rem;
+  height: 4.5rem;
+}
+
+.logo-bg {
+  width: 4.5rem;
+  height: 4.5rem;
+  background: url(../images/logo.png) no-repeat;
+  background-size: contain;
+}
+
+.border1px {
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 1PX solid #000;
+}
